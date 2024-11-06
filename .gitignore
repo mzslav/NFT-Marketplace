@@ -1,0 +1,13 @@
+# Загальні налаштування
+node_modules/
+.env
+
+# Специфічні налаштування для фронтенду
+frontend/build/
+
+# Специфічні налаштування для бекенду
+backend/dist/
+
+# Специфічні налаштування для смарт-контрактів
+smart-contracts/artifacts/
+smart-contracts/cache/
