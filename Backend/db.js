@@ -1,11 +1,12 @@
-// db.js
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+dotenv.config();
 
-const uri = 'mongodb+srv://admin:wwwwww@cluster0.jnsvk.mongodb.net/nft?retryWrites=true&w=majority&appName=Cluster0';
+const dbURI = process.env.DB_URI;
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(uri, {
+        await mongoose.connect(dbURI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
