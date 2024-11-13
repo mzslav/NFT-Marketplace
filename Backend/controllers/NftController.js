@@ -12,7 +12,8 @@ export const AddNewNft = async (req, res) => {
     }
     try {
 
-        const { title, description, creatorId, imageUrl,price,auctionStatus,auctionEndTime,owner,isAuctioned } = req.body;
+        const { title, description, creatorId, imageUrl,price,auctionStatus,
+        auctionEndTime,owner,isAuctioned,NftStatus,blockchainAddress,transactionHistory} = req.body;
         
         if (isAuctioned && !auctionEndTime) {
             return res.status(400).json({
@@ -31,6 +32,9 @@ export const AddNewNft = async (req, res) => {
             isAuctioned,
             auctionEndTime,
             owner: owner || creatorId, 
+            blockchainAddress,
+            transactionHistory,
+            NftStatus,
         };
 
        
