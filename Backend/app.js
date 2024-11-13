@@ -1,12 +1,9 @@
-// app.js
-import express from 'express';
-import { validationResult } from "express-validator";
-import connectDB from './db.js'; 
+import { express, jwt,validationResult, connectDB, 
+    registerValidation,NftValidation,UserModel,user,nft,NftModel,checkToken } from './imports/index.js';
 
-import {registerValidation} from './validations/auth.js'
-import { NftValidation } from './validations/nft-validation.js';
-import UserModel from './models/user.js'
-import user from './models/user.js';
+import {connectUser} from './controllers/UserController.js'
+import * as NftController from './controllers/NftController.js'
+
 
 connectDB();
 
@@ -15,36 +12,15 @@ const PORT = process.env.PORT || 3500;
 
 app.use(express.json());
 
+app.post('/nft/add', checkToken, NftValidation,NftController.AddNewNft);
+
+app.get('/nft/list',NftController.GetAllNFT);
+
+app.get('/nft',NftController.GetNftInfo);
+
+app.post('/profile/connect',connectUser);
 
 
-app.post('/profile/register', registerValidation,async (req,res) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()) {
-        return res.status(400).json(errors.array());
-    }
-    const doc = new UserModel({
-        email: req.body.email,
-        username: req.body.username,
-        metaMaskAddress: req.body.metaMaskAddress,
-        profilePicture: req.body.profilePicture,
-    
-    }); 
-    
-    const user = await doc.save();
-    
-    res.json(user);
-});
-
-app.post('/nft', NftValidation, (req,res) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()) {
-        return res.status(400).json(errors.array());
-    }
-    res.json({
-        success: true,
-        username: user.owner, 
-    });
-});
 
 
 app.listen(PORT, () => {

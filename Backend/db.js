@@ -1,14 +1,12 @@
-// db.js
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+dotenv.config();
 
-const uri = 'mongodb+srv://admin:wwwwww@cluster0.jnsvk.mongodb.net/nft?retryWrites=true&w=majority&appName=Cluster0';
+const dbURI = process.env.DB_URI;
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(dbURI);
         console.log('Succesful connect to MongoDB');
     } catch (error) {
         console.error('Connection error MongoDB:', error.message);
