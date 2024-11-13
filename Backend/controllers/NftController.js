@@ -12,18 +12,29 @@ export const AddNewNft = async (req, res) => {
     }
     try {
 
-        const { title, description, creatorId, imageUrl,price,auctionStatus,auctionEndTime,owner } = req.body;
+        const { title, description, creatorId, imageUrl,price,auctionStatus,auctionEndTime,owner,isAuctioned } = req.body;
         
-        const newNft = new NftModel({
+        if (isAuctioned && !auctionEndTime) {
+            return res.status(400).json({
+                success: false,
+                message: 'Auction end time is required for auctioned NFTs'
+            });
+        }
+
+        const nftData = {
             title,
-            description, 
+            description,
             creatorId,
             imageUrl,
             price,
             auctionStatus,
+            isAuctioned,
             auctionEndTime,
-            owner 
-        });
+            owner: owner || creatorId, 
+        };
+
+       
+        const newNft = new NftModel(nftData);
 
           let nft = await newNft.save();
 
@@ -69,6 +80,29 @@ export const GetNftInfo = async (req,res) => {
         return res.status(500).json({
             success: false,
             message: 'Failed to fetch NFT'
+        });
+    }
+};
+
+export const GetAllNFT = async (req, res) => {
+    try {
+
+        const nfts = await NftModel.find();
+
+        if (!nfts.length) {
+            return res.status(404).json({ message: 'NFTs not found' });
+        }
+
+        return res.json({
+            success: true,
+            data: nfts
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            message: 'Failed to fetch NFTs'
         });
     }
 };

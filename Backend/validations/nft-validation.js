@@ -22,21 +22,8 @@ export const NftValidation = [
 
     body('price','not real price').isNumeric(),
 
-    body('auctionStatus','incorect status').isIn(['active', 'completed', 'not_started']),
 
-    body('auctionEndTime','icorrect end of auction').isISO8601(),
-
-    body('owner','incorrect owner id').custom((value) => {
-        if(!mongoose.Types.ObjectId.isValid(value)) {
-            throw new Error('Invalid owner id');
-        }
-        return User.findById(value).then(user =>{
-            if(!user) {
-                return Promise.reject('User not found');
-            }
-        });
-    }),
-
+    
 
 
 

@@ -16,6 +16,7 @@ const NftSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',  
         required: true,
+        immutable: true 
     },
 
     imageUrl: {
@@ -28,21 +29,27 @@ const NftSchema = new mongoose.Schema({
         required: true,
     },
 
+    isAuctioned: {  
+        type: Boolean,
+        default: false,
+    },
+
     auctionStatus: {
-        type: String, 
+        type: String,
         enum: ['active', 'completed', 'not_started'],  
-        required: true,
+        default: 'not_started',
     },
 
     auctionEndTime: {
         type: Date,
-        required: true,
+        required: function () { return this.isAuctioned; }, 
     },
 
     owner: {  
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',  
         required: true,
+ 
     },
 
 },
@@ -51,5 +58,13 @@ const NftSchema = new mongoose.Schema({
     timestamp: true,
 },
 );
+
+NftSchema.pre('save', function(next) {
+    if (!this.owner) {
+        this.owner = this.creatorId;
+    }
+    next();
+});
+
 
 export default mongoose.model('Nft', NftSchema);

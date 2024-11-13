@@ -14,10 +14,11 @@ app.use(express.json());
 
 app.post('/nft/add', checkToken, NftValidation,NftController.AddNewNft);
 
+app.get('/nft/list',NftController.GetAllNFT);
+
 app.get('/nft',NftController.GetNftInfo);
 
 app.post('/profile/connect',connectUser);
-
 
 
 
