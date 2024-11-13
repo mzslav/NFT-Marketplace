@@ -1,7 +1,7 @@
 import { express, jwt,validationResult, connectDB, 
     registerValidation,NftValidation,UserModel,user,nft,NftModel,checkToken } from './imports/index.js';
 
-import {connectUser} from './controllers/UserController.js'
+import * as UserController from './controllers/UserController.js'
 import * as NftController from './controllers/NftController.js'
 
 
@@ -18,8 +18,9 @@ app.get('/nft/list',NftController.GetAllNFT);
 
 app.get('/nft',NftController.GetNftInfo);
 
-app.post('/profile/connect',connectUser);
+app.post('/profile/connect',UserController.connectUser);
 
+app.get('/users',UserController.getAllUsers);
 
 
 

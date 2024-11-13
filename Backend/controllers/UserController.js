@@ -52,3 +52,25 @@ export const connectUser = async (req, res) => {
     }
 };
 
+export const getAllUsers = async (req, res) => {
+    try {
+
+        const users = await UserModel.find();
+
+        if (!users.length) {
+            return res.status(404).json({ message: 'Users not found' });
+        }
+
+        return res.json({
+            success: true,
+            data: users
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            message: 'Failed to find users'
+        });
+    }
+};
