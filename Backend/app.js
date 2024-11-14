@@ -1,5 +1,6 @@
 import { express, jwt,validationResult, connectDB, 
-    registerValidation,NftValidation,UserModel,user,nft,NftModel,checkToken } from './imports/index.js';
+    registerValidation,NftValidation,UserModel,user,nft,NftModel,checkToken, 
+    authenticateJWT} from './imports/index.js';
 
 import * as UserController from './controllers/UserController.js'
 import * as NftController from './controllers/NftController.js'
@@ -12,7 +13,7 @@ const PORT = process.env.PORT || 3500;
 
 app.use(express.json());
 
-app.post('/nft/add', checkToken, NftValidation,NftController.AddNewNft);
+app.post('/nft/add', checkToken,authenticateJWT, NftValidation,NftController.AddNewNft);
 
 app.get('/nft/list',NftController.GetAllNFT);
 

@@ -1,5 +1,8 @@
 import { express, jwt,validationResult, connectDB, 
-    registerValidation,NftValidation,UserModel,user,nft,NftModel,checkToken } from '../imports/index.js';
+    registerValidation,NftValidation,UserModel,user,
+    nft,NftModel,checkToken,authenticateJWT } 
+from '../imports/index.js';
+
 
 export const AddNewNft = async (req, res) => {
     const errors = validationResult(req);
@@ -13,7 +16,7 @@ export const AddNewNft = async (req, res) => {
     try {
 
         const { title, description, creatorId, imageUrl,price,auctionStatus,
-        auctionEndTime,owner,isAuctioned,NftStatus,blockchainAddress,transactionHistory} = req.body;
+        auctionEndTime,userId,isAuctioned,NftStatus,blockchainAddress,transactionHistory} = req.body;
         
         if (isAuctioned && !auctionEndTime) {
             return res.status(400).json({
@@ -31,7 +34,7 @@ export const AddNewNft = async (req, res) => {
             auctionStatus,
             isAuctioned,
             auctionEndTime,
-            owner: owner || creatorId, 
+            owner: req.userId || creatorId,
             blockchainAddress,
             transactionHistory,
             NftStatus,

@@ -10,6 +10,7 @@ import user from '../models/user.js';
 import nft from '../models/nft.js';
 import NftModel from '../models/nft.js'
 import checkToken from '../utils/checkToken.js'
+import authenticateJWT from '../utils/authenticateJWT.js';
 
 export {
     express,
@@ -22,6 +23,7 @@ export {
     NftModel,
     nft,
     checkToken,
+    authenticateJWT,
     user
 
 
