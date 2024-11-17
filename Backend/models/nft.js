@@ -15,8 +15,12 @@ const NftSchema = new mongoose.Schema({
     creatorId: { 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',  
-        required: true,
         immutable: true 
+    },
+    owner: {  
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',  
+ 
     },
 
     imageUrl: {
@@ -26,7 +30,6 @@ const NftSchema = new mongoose.Schema({
 
     price: {
         type: Number,
-        required: true,
     },
 
     isAuctioned: {  
@@ -45,13 +48,19 @@ const NftSchema = new mongoose.Schema({
         required: function () { return this.isAuctioned; }, 
     },
 
-    owner: {  
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',  
-        required: true,
- 
+    NftStatus: {
+        type: String,
+        enum: ['on sale', 'sold', 'on auction','created'],  
+        default: 'created',
     },
-
+    blockchainAddress: {
+        type: String,
+    },
+    transactionHistory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Log',
+    },
+    
 },
 
 {

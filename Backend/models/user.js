@@ -19,6 +19,19 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    balance: {
+        type: Number,
+        default: 0,
+    },
+    ownedNFTs: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Nft',
+    },
+    purchaseLog: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Log',  
+        required: true,
+    },
 
     profilePicture:String,
 },

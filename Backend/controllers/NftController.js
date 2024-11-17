@@ -1,5 +1,8 @@
 import { express, jwt,validationResult, connectDB, 
-    registerValidation,NftValidation,UserModel,user,nft,NftModel,checkToken } from '../imports/index.js';
+    registerValidation,NftValidation,UserModel,user,
+    nft,NftModel,checkToken,authenticateJWT } 
+from '../imports/index.js';
+
 
 export const AddNewNft = async (req, res) => {
     const errors = validationResult(req);
@@ -12,7 +15,8 @@ export const AddNewNft = async (req, res) => {
     }
     try {
 
-        const { title, description, creatorId, imageUrl,price,auctionStatus,auctionEndTime,owner,isAuctioned } = req.body;
+        const { title, description, creatorId, imageUrl,price,auctionStatus,
+        auctionEndTime,userId,isAuctioned,NftStatus,blockchainAddress,transactionHistory} = req.body;
         
         if (isAuctioned && !auctionEndTime) {
             return res.status(400).json({
@@ -30,7 +34,10 @@ export const AddNewNft = async (req, res) => {
             auctionStatus,
             isAuctioned,
             auctionEndTime,
-            owner: owner || creatorId, 
+            owner: req.userId || creatorId,
+            blockchainAddress,
+            transactionHistory,
+            NftStatus,
         };
 
        
@@ -85,9 +92,35 @@ export const GetNftInfo = async (req,res) => {
 };
 
 export const GetAllNFT = async (req, res) => {
-    try {
+    const { sort = 'createdAt', sortOrder = 'asc', creatorNickname } = req.query;
+    
+    const findPrice = req.query.price ? parseFloat(req.query.price) : null;
+    if (findPrice && isNaN(findPrice)) {
+        return res.status(400).json({ message: 'Invalid price value' });
+    }
+    
 
-        const nfts = await NftModel.find();
+    try {
+        let filter = {};
+
+        // Пошук по імені користувача
+        if (creatorNickname) {
+            const user = await UserModel.findOne({ username: creatorNickname });
+            if (!user) {
+                return res.status(404).json({ message: 'Creator not found' });
+            }
+            filter.creatorId = user._id;
+        }
+
+        // Фільтрація за ціною
+        if (findPrice) {
+            filter.price = { $lte: findPrice }; // Додаємо умову для ціни
+        }
+
+        // Пошук NFT за фільтром
+        const nfts = await NftModel.find(filter)
+            .sort({ [sort]: sortOrder })
+            .populate('creatorId', 'username'); 
 
         if (!nfts.length) {
             return res.status(404).json({ message: 'NFTs not found' });
