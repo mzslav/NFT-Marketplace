@@ -92,9 +92,35 @@ export const GetNftInfo = async (req,res) => {
 };
 
 export const GetAllNFT = async (req, res) => {
-    try {
+    const { sort = 'createdAt', sortOrder = 'asc', creatorNickname } = req.query;
+    
+    const findPrice = req.query.price ? parseFloat(req.query.price) : null;
+    if (findPrice && isNaN(findPrice)) {
+        return res.status(400).json({ message: 'Invalid price value' });
+    }
+    
 
-        const nfts = await NftModel.find();
+    try {
+        let filter = {};
+
+        // Пошук по імені користувача
+        if (creatorNickname) {
+            const user = await UserModel.findOne({ username: creatorNickname });
+            if (!user) {
+                return res.status(404).json({ message: 'Creator not found' });
+            }
+            filter.creatorId = user._id;
+        }
+
+        // Фільтрація за ціною
+        if (findPrice) {
+            filter.price = { $lte: findPrice }; // Додаємо умову для ціни
+        }
+
+        // Пошук NFT за фільтром
+        const nfts = await NftModel.find(filter)
+            .sort({ [sort]: sortOrder })
+            .populate('creatorId', 'username'); 
 
         if (!nfts.length) {
             return res.status(404).json({ message: 'NFTs not found' });
