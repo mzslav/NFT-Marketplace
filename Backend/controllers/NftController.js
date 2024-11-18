@@ -61,16 +61,15 @@ export const AddNewNft = async (req, res) => {
 
 export const GetNftInfo = async (req,res) => {
     try {
-        // Отримуємо параметр 'title' з запиту
-        const { title } = req.body;
-
-        // Перевіряємо, чи передано title
-        if (!title) {
-            return res.status(400).json({ message: 'Title parameter is required' });
+ 
+        const id = req.body.id || req.params.id || req.query.id;
+        if (!id) {
+            return res.status(400).json({ message: 'Id parameter is required' });
         }
 
+
         // Шукаємо NFT по назві (регулярний вираз для нечутливого до регістру пошуку)
-        const nft = await NftModel.findOne({ title: { $regex: title, $options: 'i' } });
+        const nft = await NftModel.findById(id);
 
         if (!nft) {
             return res.status(404).json({ message: 'NFT not found' });
@@ -90,6 +89,7 @@ export const GetNftInfo = async (req,res) => {
         });
     }
 };
+
 
 export const GetAllNFT = async (req, res) => {
     const { sort = 'createdAt', sortOrder = 'asc', creatorNickname } = req.query;
@@ -136,6 +136,47 @@ export const GetAllNFT = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: 'Failed to fetch NFTs'
+        });
+    }
+};
+
+
+export const buyNft = async (req,res) => {
+    try {
+ 
+        const NFTid = req.body.id || req.params.id || req.query.id;
+        if (!NFTid) {
+            return res.status(400).json({ message: 'Id parameter is required' });
+        }
+
+        const nft = await NftModel.findById(NFTid);
+
+        if (!nft) {
+            return res.status(404).json({ message: 'NFT not found' });
+        }
+
+        const buyerId = req.userId;
+
+
+        if (buyerId) {
+            nft.owner = buyerId;
+
+            }
+
+            await nft.save();
+
+
+        return res.json({
+            success: true,
+            message: "NFT purchased successfully",
+            data: nft
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            message: 'Failed to fetch NFT'
         });
     }
 };

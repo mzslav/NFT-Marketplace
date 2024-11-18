@@ -17,9 +17,11 @@ app.post('/nft/add', checkToken,authenticateJWT, NftValidation,NftController.Add
 
 app.get('/nft/list',NftController.GetAllNFT);
 
-app.get('/nft',NftController.GetNftInfo);
+app.get('/nft/:id',NftController.GetNftInfo);
 
 app.post('/profile/connect',UserController.connectUser);
+
+app.post('/nft/:id/buy',authenticateJWT,NftController.buyNft);
 
 app.get('/users',UserController.getAllUsers);
 
