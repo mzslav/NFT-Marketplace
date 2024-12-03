@@ -1,20 +1,18 @@
+const hardhat = require("hardhat");
+
 async function main() {
-    const [deployer] = await ethers.getSigners(); // отримуємо підписувача (ваш гаманець)
+    const NFTMarketplace = await hardhat.ethers.getContractFactory("NFTMarketplace");
+    const nftMarketPlace = await NFTMarketplace.deploy();
 
-    console.log("Deploying contracts with the account:", await deployer.getAddress());
+    // Очікуємо на розгортання контракту
+    await nftMarketPlace.waitForDeployment();
 
-    // Отримуємо контракт
-    const MyNFT = await ethers.getContractFactory("MyNFT");
-    
-    // Розгортаємо контракт
-    const myNft = await MyNFT.deploy();
-    console.log("MyNFT contract deployed to:", myNft.getAddress());
+    // Виводимо адресу розгорнутого контракту через .target()
+    console.log('NFTMarketplace contract deployed at:', nftMarketPlace.target);
 }
 
-// Запускаємо основну функцію
 main()
-    .then(() => process.exit(0))
     .catch((error) => {
-        console.error(error);
+        console.error("Error during deployment:", error);
         process.exit(1);
     });
