@@ -1,0 +1,115 @@
+body {
+   
+    background-image: url('/picture/backround.jpg');
+    background-size: cover; /* Забезпечує, щоб фон покривав весь екран */
+    background-position: center; /* Центрує фон */
+    background-attachment: fixed; /* Фіксує фон при скролінгу */
+  }
+  
+  .header {
+    position: fixed; /* Закріплення хедера вгорі сторінки */
+    top: 0;
+    left: 0;
+    width: 100%; /* Хедер на всю ширину */
+    height: 60px; /* Висота хедера */
+    background-color: transparent; /* Прозорий фон */
+    display: flex;
+    justify-content: space-between; /* Розміщує елементи по краях */
+    align-items: center; /* Центрування елементів по вертикалі */
+    padding: 13px 40px; /* Відступи: зверху 13px, зліва та справа 40px */
+    box-sizing: border-box;
+    z-index: 10; /* Хедер завжди над іншими елементами */
+    
+    border: 2px solid #ffffff; /* Рамка з кольором та шириною */
+  }
+  
+  .header-btn {
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    border: 2px solid #951fb3;
+    border-radius: 10px;
+    width: 100px;
+    height: 34px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background: #00012a;
+    cursor: pointer;
+    
+    display: flex; /* Для вирівнювання вмісту */
+    align-items: center; /* Вирівнювання тексту по вертикалі */
+    justify-content: center; /* Центрування тексту по горизонталі */
+    padding: 12px 18px; /* Відступи: зверху/знизу 6px, праворуч 18px */
+    box-sizing: border-box;
+    position: absolute; /* Абсолютне позиціювання */
+    right: 155px; /* Розміщує кнопку на правій стороні */
+
+    
+  }
+  
+  .header-btn:hover {
+    background-color: #1a043a; /* Темніший відтінок при наведенні */
+  }
+  
+  .create {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #d0d0d0;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    
+    right: 354px; 
+    margin-top: 4px;
+  }
+  
+  .create:hover {
+    color: #7ab2f3; /* Зміна кольору при наведенні */
+  }
+  
+  .market {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #d0d0d0;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    right: 538px; 
+    margin-top: 4px;
+  }
+  
+  .market:hover {
+    color: #7ab2f3; /* Зміна кольору при наведенні */
+  }
+  
+  .about {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #d0d0d0;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    right: 726px; 
+    margin-top: 4px;
+  }
+  
+  .about:hover {
+    color: #7ab2f3; 
+  }
+  
+  .title-name {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #81c9f8;
+    position: absolute;
+    right: 1183px; 
+    margin-top: 4px;
+  }
+  
