@@ -4,6 +4,7 @@ body {
     background-size: cover; /* Забезпечує, щоб фон покривав весь екран */
     background-position: center; /* Центрує фон */
     background-attachment: fixed; /* Фіксує фон при скролінгу */
+    
   }
   
   .header {
@@ -20,7 +21,7 @@ body {
     box-sizing: border-box;
     z-index: 10; /* Хедер завжди над іншими елементами */
     
-    border: 2px solid #ffffff; /* Рамка з кольором та шириною */
+    border: 2px solid #f01d1d; /* Рамка з кольором та шириною */
   }
   
   .header-btn {
@@ -28,7 +29,7 @@ body {
     font-weight: 700;
     font-size: 16px;
     color: #fff;
-    border: 2px solid #951fb3;
+    border: none;
     border-radius: 10px;
     width: 100px;
     height: 34px;
@@ -41,15 +42,33 @@ body {
     justify-content: center; /* Центрування тексту по горизонталі */
     padding: 12px 18px; /* Відступи: зверху/знизу 6px, праворуч 18px */
     box-sizing: border-box;
-    position: absolute; /* Абсолютне позиціювання */
+    position: absolute; /* Абсолютне позиціонування кнопки */
     right: 155px; /* Розміщує кнопку на правій стороні */
+}
 
-    
-  }
-  
-  .header-btn:hover {
-    background-color: #1a043a; /* Темніший відтінок при наведенні */
-  }
+.header-btn::after {
+    content: '';
+    position: absolute;
+    top: -2px; /* Відступ по верхньому краю */
+    left: -2px; /* Відступ по лівому краю */
+    right: -2px; /* Відступ по правому краю */
+    bottom: -2px; /* Відступ по нижньому краю */
+    border-radius: 10px; /* Радіус обводки */
+    background-image: linear-gradient(to bottom right, 
+  rgba(97, 12, 135, 1) 0%, 
+  rgba(183, 4, 184, 1) 30%, 
+  rgba(213, 47, 203, 1) 60%, 
+  rgba(165, 156, 219, 1) 100%);
+
+    z-index: -1; /* Псевдоелемент позаду кнопки */
+}
+
+.header-btn:hover {
+    z-index: 0;
+    box-shadow: 40px 0 100px #7ab2f3, -40px 0 100px #f01d1d;
+}
+
+
   
   .create {
     font-family: var(--third-family);

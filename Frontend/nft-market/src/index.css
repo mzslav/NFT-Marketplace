@@ -1,3 +1,11 @@
+#root {
+    max-width: none;   /* Позбуваємося обмеження ширини */
+    margin: 0;         /* Вимикаємо відступи */
+    padding: 0;        /* Вимикаємо відступи */
+    text-align: left;  /* Вимикаємо вирівнювання по центру */
+}
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
