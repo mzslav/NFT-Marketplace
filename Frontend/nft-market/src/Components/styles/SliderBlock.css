@@ -1,0 +1,76 @@
+
+
+
+
+.slider-block {
+    text-align: center;
+    margin: 0 auto; /* Центрування блоку */
+    width: 100wv; /* Обмеження ширини */
+    box-sizing: border-box; /* Врахування відступів у розрахунку ширини */
+    max-width: 100vw;
+    padding-bottom: 100px;
+    
+  }
+  
+  .slider-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 64px;
+    background: linear-gradient(90deg, #cfcfcf 0%, #696969 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slider-container {
+    width: 100%; /* Робимо блок адаптивним */
+    max-width: 800px; /* Обмежуємо максимальну ширину слайдера */
+    margin: 0 auto; /* Центрування слайдера */
+    position: relative;
+    border-radius: 40px; /* Закруглення контейнера */
+    background: linear-gradient(138deg, rgba(36, 36, 36, 0.507) 0%, rgba(138, 138, 138, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонка прозора біла рамка */
+    padding: 20px;
+    box-sizing: border-box; /* Уникаємо виходу за межі */
+    z-index: 1;
+    width: 700px; /* Фіксована ширина */
+    height: 480px; /* Фіксована висота */
+    display: flex;
+    justify-content: center; /* Центрування слайдера по горизонталі */
+    align-items: center; /* Центрування слайдера по вертикалі */
+}
+
+.mySwiper {
+    width: 100%; /* Автоматичне розтягування всередині контейнера */
+    height: 100%; /* Висота на весь контейнер */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none; /* Прибираємо фон */
+    height: 100%; /* Слайд займає всю висоту контейнера */
+}
+
+.slider-image {
+    width: 402px; /* Фіксована ширина картинки */
+    height: 402px; /* Фіксована висота картинки */
+    object-fit: cover; /* Зберігає пропорції та обрізає */
+    border-radius: 30px; /* Закруглення зображень */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Легка тінь */
+}
+
+.swiper-pagination {
+    color: #fff; /* Колір пагінації */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff; /* Кнопки навігації */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #951fb3; /* Фіолетовий при наведенні */
+}

@@ -1,0 +1,158 @@
+body {
+   
+    background-image: url('/picture/backround.jpg');
+    background-size: cover; /* Забезпечує, щоб фон покривав весь екран */
+    background-position: center; /* Центрує фон */
+    background-attachment: fixed; /* Фіксує фон при скролінгу */
+
+  }
+
+/* Кастомізація скролбару */
+body::-webkit-scrollbar {
+  width: 6px; /* Тонкий скролбар */
+}
+
+/* Фон треку скролбару */
+body::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Світлий фон треку скролбару */
+}
+
+/* Колір повзунка скролбару */
+body::-webkit-scrollbar-thumb {
+  background-color: #888; /* Сірий колір для самого скролбару */
+  border-radius: 10px; /* Закруглені кути */
+}
+
+/* Зміна кольору повзунка при наведенні */
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Темніший сірий при наведенні */
+}
+
+  
+  
+  .header {
+    position: fixed; /* Закріплення хедера вгорі сторінки */
+    top: 0;
+    left: 0;
+    width: 100%; /* Хедер на всю ширину */
+    height: 60px; /* Висота хедера */
+    background-color: transparent; /* Прозорий фон */
+    display: flex;
+    justify-content: space-between; /* Розміщує елементи по краях */
+    align-items: center; /* Центрування елементів по вертикалі */
+    padding: 13px 40px; /* Відступи: зверху 13px, зліва та справа 40px */
+    box-sizing: border-box;
+    z-index: 10; /* Хедер завжди над іншими елементами */
+    
+    
+  }
+  
+  .header-btn {
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 34px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background: #00012a;
+    cursor: pointer;
+    
+    display: flex; /* Для вирівнювання вмісту */
+    align-items: center; /* Вирівнювання тексту по вертикалі */
+    justify-content: center; /* Центрування тексту по горизонталі */
+    padding: 12px 18px; /* Відступи: зверху/знизу 6px, праворуч 18px */
+    box-sizing: border-box;
+    position: absolute; /* Абсолютне позиціонування кнопки */
+    right: 155px; /* Розміщує кнопку на правій стороні */
+    
+}
+
+.header-btn::after {
+    content: '';
+    position: absolute;
+    top: -2px; /* Відступ по верхньому краю */
+    left: -2px; /* Відступ по лівому краю */
+    right: -2px; /* Відступ по правому краю */
+    bottom: -2px; /* Відступ по нижньому краю */
+    border-radius: 10px; /* Радіус обводки */
+    background-image: linear-gradient(to bottom right, 
+  rgba(97, 12, 135, 1) 0%, 
+  rgba(183, 4, 184, 1) 30%, 
+  rgba(213, 47, 203, 1) 60%, 
+  rgba(165, 156, 219, 1) 100%);
+
+    z-index: -1; /* Псевдоелемент позаду кнопки */
+}
+
+.header-btn:hover {
+    z-index: 0;
+    box-shadow: 40px 0 100px #7ab2f3, -40px 0 100px #f01d1d;
+}
+
+
+  
+  .create {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #d0d0d0;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    
+    right: 354px; 
+    margin-top: 4px;
+  }
+  
+  .create:hover {
+    color: #7ab2f3; /* Зміна кольору при наведенні */
+  }
+  
+  .market {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #d0d0d0;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    right: 538px; 
+    margin-top: 4px;
+  }
+  
+  .market:hover {
+    color: #7ab2f3; /* Зміна кольору при наведенні */
+  }
+  
+  .about {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #d0d0d0;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    right: 726px; 
+    margin-top: 4px;
+  }
+  
+  .about:hover {
+    color: #7ab2f3; 
+  }
+  
+  .title-name {
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #81c9f8;
+    position: absolute;
+    right: 1183px; 
+    margin-top: 4px;
+  }
+  
