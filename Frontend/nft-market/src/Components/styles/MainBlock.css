@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
 :root {
-    --font-family: 'Arial', sans-serif; /* Замініть на ваш шрифт, якщо потрібно */
+    --font-family: 'Arial', sans-serif;
 }
 
 
 
 .main-block {
+    margin-top: 60px;
     position: relative;
     height: 700px; /* Висота блоку залишиться незмінною */
-    width: 100vw; /* Ширина на весь екран */
+    width: calc(100vw - 17px); /* 17px - стандартна ширина scrollbar */
     display: flex;
     align-items: center; /* Центрує контент по вертикалі */
     justify-content: flex-start; /* Контент починається зліва */
-    border: 2px dashed red; /* Обводка для видимих границь */
-    box-sizing: border-box; /* Включає обводку у загальний розмір */
     
+
 }
 
 .main-block-content {
@@ -49,38 +49,12 @@
 }
 
 .main-block-subtitle .highlighted {
-    background: linear-gradient(90deg, #1c1758 0%, #c377cd 100%); /* Фіолетовий градієнт */
+    background: linear-gradient(90deg, #be77c7 0%, #352c99 100%); /* Фіолетовий градієнт */
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.main-block-btn {
-    font-family: var(--third-family);
-    font-weight: 700;
-    font-size: 16px;
-    color: #fff;
-    border: 2px solid #951fb3;
-    border-radius: 10px;
-    width: 200px;
-    height: 45px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    background: #00012a;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
-    box-sizing: border-box;
-    position: absolute;
-    
-    top: 266px;
-}
-
-
-.main-block-btn:hover {
-    background-color: #1a043a;
-}
 
 .glass-card {
     position: absolute;
@@ -101,4 +75,35 @@
     height: 100%;
     object-fit: cover; /* Заповнює картку без спотворення */
     border-radius: 30px;
+}
+ 
+.main-block-btn {
+    background-image: linear-gradient(to right, #f331d3 0%, #cf33ee 51%, #ce0be7 100%);
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    width: 200px; /* Ширина для відповідності */
+    height: 45px; /* Висота для відповідності */
+    position: absolute; /* Абсолютне позиціювання */
+    top: 266px; /* Позиція для відповідності */
+}
+
+.main-block-btn i {
+    margin-left: 10px; /* Відстань між текстом і іконкою */
+    font-size: 20px; /* Розмір іконки */
+}
+
+.main-block-btn:hover {
+    background-position: right center; /* Зміна напрямку градієнту */
+    color: #fff;
+    text-decoration: none;
 }

@@ -9,7 +9,9 @@ const MainBlock = () => {
           Your place to collect, <br />
           research, buy and create <span className="highlighted">NFTs</span>
         </p>
-        <button className="main-block-btn">Get Started</button>
+        <button className="main-block-btn">
+            Find out <i className="fas fa-arrow-right"></i> 
+          </button>
       </div>
       <div className="glass-card">
         <img src="/picture/main-slide.png" alt="Logo" className="logo-img" />

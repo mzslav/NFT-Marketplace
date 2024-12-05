@@ -1,5 +1,7 @@
 import MainBlock from './Components/MainBlock'
 import Header from './Components/Header';
+import SliderBlock from './Components/SliderBlock'
+import Footer from './Components/Footer';
 import './App.css';
 
 // src/index.js або src/App.js
@@ -15,6 +17,8 @@ function App() {
     <>
       <Header />
       <MainBlock />
+      <SliderBlock />
+      <Footer />
    
     </>
   )
