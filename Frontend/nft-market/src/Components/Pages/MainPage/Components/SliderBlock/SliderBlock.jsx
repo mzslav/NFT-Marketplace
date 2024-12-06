@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './styles/SliderBlock.css'; // Стилі
+import './SliderBlock.css'; // Стилі
 
 import { Pagination, Navigation } from 'swiper/modules';
 
