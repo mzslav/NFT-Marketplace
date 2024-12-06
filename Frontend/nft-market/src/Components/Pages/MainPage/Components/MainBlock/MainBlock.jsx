@@ -1,4 +1,4 @@
-import './styles/MainBlock.css';
+import './MainBlock.css';
 
 const MainBlock = () => {
     return (

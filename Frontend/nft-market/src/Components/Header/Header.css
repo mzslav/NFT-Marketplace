@@ -103,7 +103,7 @@ body::-webkit-scrollbar-thumb:hover {
     text-decoration: none;
     cursor: pointer;
     position: absolute;
-    
+    font-weight: bold;
     right: 354px; 
     margin-top: 4px;
   }
@@ -123,6 +123,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: absolute;
     right: 538px; 
     margin-top: 4px;
+    font-weight: bold;
   }
   
   .market:hover {
@@ -140,6 +141,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: absolute;
     right: 726px; 
     margin-top: 4px;
+    font-weight: bold;
   }
   
   .about:hover {
@@ -155,4 +157,5 @@ body::-webkit-scrollbar-thumb:hover {
     right: 1183px; 
     margin-top: 4px;
   }
+  
   
