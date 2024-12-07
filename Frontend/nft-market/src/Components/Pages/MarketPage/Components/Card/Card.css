@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap');
+
+.card {
+  position: relative;
+  top: 60px;
+  width: 324px;
+  height: 454px;
+  background: linear-gradient(138deg, rgba(36, 36, 36, 0.507) 0%, rgba(138, 138, 138, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+  box-sizing: border-box;
+  padding: 12px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+  transition: background 0.3s ease, opacity 0.3s ease; 
+  overflow: hidden; /* щоб контент не виходив за межі картки */
+  
+}
+
+.card:hover {
+    background: rgba(128, 128, 128, 0.5);
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    background: rgba(128, 128, 128, 0.5);
+    cursor: pointer;
+  }
+  
+  /* Оновлений стиль для кнопки */
+  .card .go-try-btn {
+    display: none;
+    position: absolute;
+    bottom: 227px; /* Зменшення відстані віднизу */
+    width: 150px; 
+    height: 35px; /* Зменшення висоти кнопки */
+    background-image: linear-gradient(to right, #f331d3 0%, #cf33ee 51%, #ce0be7 100%);
+    font-weight: 700;
+    font-size: 14px; /* Зменшення шрифту */
+    padding: 5px 30px; /* Зменшення відступів */
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .card .go-try-btn i {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+  
+  .card:hover .go-try-btn {
+    display: block;
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .card .go-try-btn:hover {
+    background-position: left center;
+  }
+
+
+.card img {
+  width: 300px;
+  height: 300px;
+  border-radius: 40px 40px 0 0;
+  transition: opacity 0.3s ease;
+  object-fit: cover;
+}
+
+.card:hover .card-image {
+    opacity: 0.7; /* Зменшуємо непрозорість зображення, щоб воно стало темнішим */
+  }
+
+
+  .card-image-wrapper {
+    position: relative;
+    overflow: hidden; /* Забезпечуємо, щоб зображення не виходило за межі контейнера */
+  }
+  
+  .card-image-wrapper::after {
+    content: "";
+    position: absolute;
+    height: 300px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40px 40px 0 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Темний фільтр */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .card:hover .card-image-wrapper::after {
+    opacity: 1; /* Додаємо темний фільтр при наведенні */
+  }
+.card-content {
+  width: 100%;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.card-author {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+  text-align: left;
+  margin-left: 0px;
+  margin-top: -22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-title {
+  font-family: 'Arvo';
+  font-size: 32px;
+  font-weight: bold;
+  text-align: left;
+
+  margin-top: 0;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-date {
+  text-align: left;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 12px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-price {
+  text-align: left;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 12px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-background {
+  border-radius: 0 0 20px 20px;
+  width: 300px;
+  height: 56px;
+  background: #0e0518;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -32px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.release-text {
+  font-family: 'Arvo';
+  color: rgba(233, 227, 227, 0.616);
+  font-size: 16px;
+  margin: 0;
+}
+
+.price-text {
+  color: rgba(233, 227, 227, 0.616);
+  font-size: 16px;
+  font-family: 'Arvo';
+  margin: 0;
+}
+
+.release-section {
+    text-align: left;
+    padding-top: 12px;
+
+  }
+  
+  .release-text {
+    font-family: 'Arvo';
+    color: rgba(233, 227, 227, 0.616);
+    font-size: 16px;
+
+  }
+  
+  .card-date {
+    text-align: left;
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: -14px;
+    margin-left: 0px;
+  }
+  
+  /* Контейнер для секції "Price" */
+  .price-section {
+    text-align: left;
+    padding-top: 12px;
+  }
+  
+  .price-text {
+    font-family: 'Arvo';
+    color: rgba(233, 227, 227, 0.616);
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .card-price {
+    text-align: left;
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: -14px;
+    margin-left: 0px;
+  }
+  
+  /* Додаємо горизонтальний відступ між секціями "Release" та "Price" */
+  .release-section + .price-section {
+    margin-left: 80px; /* Відступ між двома секціями */
+  }

@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.post('/nft/add', checkToken,authenticateJWT, NftValidation,NftController.AddNewNft);
 
-app.get('/nft/list',NftController.GetAllNFT);
+app.get('/martetplace',NftController.GetAllNFT);
 
 app.get('/nft/:id',NftController.GetNftInfo);
 
