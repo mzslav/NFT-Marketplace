@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3500;
 
 app.use(express.json());
 
-app.post('/nft/add', checkToken,authenticateJWT, NftValidation,NftController.AddNewNft);
+app.post('/create', checkToken,authenticateJWT, NftValidation,NftController.AddNewNft);
 
 app.get('/martetplace',NftController.GetAllNFT);
 
