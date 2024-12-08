@@ -30,22 +30,27 @@ body::-webkit-scrollbar-thumb:hover {
 
   
   
-  .header {
-    position: fixed; /* Закріплення хедера вгорі сторінки */
-    top: 0;
-    left: 0;
-    width: 100%; /* Хедер на всю ширину */
-    height: 60px; /* Висота хедера */
-    background-color: transparent; /* Прозорий фон */
-    display: flex;
-    justify-content: space-between; /* Розміщує елементи по краях */
-    align-items: center; /* Центрування елементів по вертикалі */
-    padding: 13px 40px; /* Відступи: зверху 13px, зліва та справа 40px */
-    box-sizing: border-box;
-    z-index: 10; /* Хедер завжди над іншими елементами */
-    
-    
-  }
+.header {
+  position: fixed; /* Закріплення хедера вгорі сторінки */
+  top: 0;
+  left: 0;
+  width: 100%; /* Хедер на всю ширину */
+  height: 60px; /* Висота хедера */
+  background-color: transparent; /* Прозорий фон */
+  display: flex;
+  justify-content: space-between; /* Розміщує елементи по краях */
+  align-items: center; /* Центрування елементів по вертикалі */
+  padding: 13px 40px; /* Відступи: зверху 13px, зліва та справа 40px */
+  box-sizing: border-box;
+  z-index: 10; /* Хедер завжди над іншими елементами */
+  transition: background-color 0.3s ease; /* Плавний перехід фону */
+}
+
+/* Клас, що додається під час прокручування */
+.header.scrolled {
+  background-color: rgba(9, 1, 25, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Біла обводка з прозорістю */
+}
   
   .header-btn {
     font-family: var(--third-family);

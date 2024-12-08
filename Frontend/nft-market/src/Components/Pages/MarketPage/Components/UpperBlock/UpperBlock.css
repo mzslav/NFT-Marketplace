@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap');
 
+
 .upper-block {
-    margin-top: -300px; /* Відступ зверху */
-    margin-left: 180px; /* Відступ зліва */
+    margin-top: 120px; /* Відступ зверху */
+    margin-left: 240px; /* Відступ зліва */
     text-align: left; /* Вирівнювання тексту ліворуч */
+    background-image: url('your-image-url.jpg');
+    background-size: cover; /* Фон покриває весь контейнер */
+    background-position: center; /* Фон вирівнюється по центру */
+    background-repeat: no-repeat; /* Фон не повторюється */
+
 }
 
 .title {
@@ -55,6 +61,7 @@
 
 .filter-button:hover {
     background: #1a052b; /* Ефект при наведенні */
+    box-shadow: 20px 0 150px #ff00aa, -20px 0 150px #a83dff;
 }
 
 /* Тільки обводка з градієнтом для текстових полів */
@@ -106,4 +113,5 @@
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
     z-index: 0;
+    
 }

@@ -3,7 +3,7 @@ import './UpperBlock.css';
 const UpperBlock = () => {
     return (
         <div className="upper-block">
-            <h1 className="title">Buy NFT HERE</h1>
+            <h1 className="title">MINT NFT HERE</h1>
             <div className="filter-container">
                 <div className="button-wrapper">
                     <button className="filter-button">Category</button>
