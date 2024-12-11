@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap');
 
 .page-content {
-    margin-top: -300px;
+  
     margin-left: 250px; /* Відступ від лівого краю */
     margin-right: left; /* Вирівнювання для центрування */
     max-width: calc(100% - 250px); /* Максимальна ширина з урахуванням відступу */
     box-sizing: border-box; /* Правильний підрахунок відступів */
-    margin-top: 50px;
+    margin-top: 60px;
+    margin-bottom: 260px;
 }
 
 
@@ -19,6 +20,7 @@
     color: #fff;
     line-height: 1.2;
     margin-left: 30px; /* Локальне зміщення тексту */
+    padding-top: 30px;
 }
 
 
@@ -168,7 +170,7 @@
 .title-block {
       text-align: left; /* Вирівнює контент по центру */
       margin-left: 30px;
-      margin-top: 20px;
+      margin-top: 40px;
 }
 
 .title-text {
@@ -180,7 +182,7 @@
 .description-block {
     text-align: left;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .nft-description-input {
@@ -230,7 +232,7 @@
 /* Обертка для вибору категорії з градієнтною обводкою */
 .category-block {
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 /* Стилі для селекту */
@@ -277,5 +279,507 @@
     color: #fff;
     font-size: 16px;
     font-weight: bold;
+    margin-bottom: 0px;
+    font-family: 'Arvo', serif;
+}
+
+
+
+
+
+.auction-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 326px;
+    height: 42px;
+    background: transparent; /* Прозорий фон контейнера */
+    margin-top: 40px;
+    margin-left: 30px;
+    
+}
+
+.auction-texts {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arvo', serif;
+}
+
+.auction-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-family: 'Arvo', serif;
+}
+
+.auction-subtitle {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    font-family: 'Arvo', serif;
+}
+
+/* Стиль для switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+    
+}
+
+/* Сховати стандартний чекбокс */
+.switch input {
+    display: none;
+}
+
+
+
+.price-block {
+    margin-left: 30px;
+    padding-top: 40px;
+}
+
+.auction-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 380px;
+    height: 42px;
+    background: transparent; /* Прозорий фон контейнера */
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.auction-texts {
+    display: flex;
+    flex-direction: column;
+}
+
+.auction-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-family: 'Arvo', serif;
+}
+
+.auction-subtitle {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    font-family: 'Arvo', serif;
+}
+
+/* Стиль для switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+/* Сховати стандартний чекбокс */
+.switch input {
+    display: none;
+}
+
+/* Слайдер */
+.slider-i {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bd8dd391;
+    transition: .4s;
+}
+
+/* Стиль для круглого слайдера */
+.slider-i:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider-i {
+    background-color: #d531eb;
+}
+
+input:focus + .slider-i {
+    box-shadow: 0 0 1px #d311d3;
+}
+
+input:checked + .slider-i:before {
+    transform: translateX(26px);
+}
+
+/* Округлений слайдер */
+.slider-i.round {
+    border-radius: 34px;
+}
+
+.slider-i.round:before {
+    border-radius: 50%;
+}
+
+
+.marketplace-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 380px; /* Залишимо ширину такою ж */
+    height: 42px;
+    background: transparent; /* Прозорий фон */
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.marketplace-texts {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arvo', serif;
+}
+
+.marketplace-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-family: 'Arvo', serif;
+}
+
+.marketplace-subtitle {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    font-family: 'Arvo', serif;
+}
+
+/* Стиль для switch */
+.marketplace-block .switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+/* Сховати стандартний чекбокс */
+.marketplace-block .switch input {
+    display: none;
+}
+
+/* Слайдер */
+.marketplace-block .slider-i {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bd8dd391;
+    transition: .4s;
+}
+
+/* Стиль для круглого слайдера */
+.marketplace-block .slider-i:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+.marketplace-block input:checked + .slider-i {
+    background-color: #31d3eb; /* Інший колір при увімкненні */
+}
+
+.marketplace-block input:focus + .slider-i {
+    box-shadow: 0 0 1px #11d3d3;
+}
+
+.marketplace-block input:checked + .slider-i:before {
+    transform: translateX(26px);
+}
+
+/* Округлений слайдер */
+.marketplace-block .slider-i.round {
+    border-radius: 34px;
+}
+
+.marketplace-block .slider-i.round:before {
+    border-radius: 50%;
+}
+
+/* Стилі для інпута ціни */
+.nft-price-input {
+    width: 452px;
+    height: 38px;
+    border-radius: 10px;
+    border: none;
+    background: #110321;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+/* Обертка для інпута */
+.input-border {
+    position: relative;
+    display: inline-block;
+    padding: 2px; /* Ширина градієнта */
+    border-radius: 12px;
+    background: transparent;
+}
+
+
+
+/* Стилі для блоку вибору дати закінчення аукціону */
+.auction-end-time-block {
+    margin-left: 30px;
+    margin-top: 50px;
+    display: none; /* За замовчуванням приховано */
+}
+
+/* Клас .active додається, коли аукціон увімкнений */
+.auction-end-time-block.active {
+    display: block;
+}
+
+/* Стилі для інпута вибору дати */
+.nft-auction-end-time-input {
+    width: 432px; /* Ширина інпута */
+    height: 38px; /* Висота інпута */
+    border-radius: 10px;
+    border: none; /* Прибираємо стандартний бордюр */
+    background: #110321; /* Темний фон текстового поля */
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 30px; /* Відступ для іконки календаря */
+    position: relative;
+    font-weight: bold;
+    
+}
+
+/* Стилі для обводки інпута */
+.input-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px; /* Ширина обводки */
+    background: linear-gradient(
+        to bottom right,
+        rgba(97, 12, 135, 1) 0%, 
+        rgba(183, 4, 184, 1) 30%, 
+        rgba(213, 47, 203, 1) 60%, 
+        rgba(165, 156, 219, 1) 100%
+    ); /* Градієнт для обводки */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: 0;
+}
+
+/* Білий колір для іконки календаря */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%); /* Змінюємо колір іконки на білий */
+}
+
+
+
+
+/* Загальний контейнер для колекцій */
+.collection-block {
+    margin-top: 30px;
+    margin-left: 30px;
+
+}
+
+.collection-container {
+    display: flex;
+    flex-wrap: wrap; /* Дозволяємо елементам переходити на наступний рядок */
+    gap: 40px; /* Відстань між елементами */
+    justify-content: space-between; /* Забезпечує рівномірне розподілення елементів */
+    width: 320px; /* Ширина контейнера */
+}
+
+/* Стилі для кожного квадрата */
+.collection-box {
+    border-radius: 10px;
+    width: 140px; /* Ширина кожного елемента */
+    height: 140px; /* Висота кожного елемента */
+    background: rgba(201, 195, 195, 0.1); /* Фон за замовчуванням */
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Щоб padding не змінював загальні розміри */
+    font-family: 'Arvo', serif;
+}
+
+.collection-box.add-collection {
+    background: #110321; /* Фон для додавання колекції */
+    border: 2px solid #aa27aa; /* Обводка для додавання */
+}
+
+.collection-box.selected-collection {
+    background: rgba(201, 195, 195, 0.1);
+    border: 2px solid #663399; /* Та ж обводка для вибраної колекції */
+}
+
+.collection-box:hover {
+    background: rgba(201, 195, 195, 0.2); /* Підсвічування при наведенні */
+}
+
+/* Коли колекція вибрана, фон стає темнішим */
+.collection-box.selected {
+    background: rgba(201, 195, 195, 0.3);
+    border-color: #663399; /* Тримати фіолетову обводку */
+}
+
+.plus-sign {
+    font-size: 30px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Arvo', serif;
+}
+
+.collection-name {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Arvo', serif;
+   
+}
+
+
+.symbol_imput{
+    padding-top: 20px;
+}
+
+.price-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+}
+
+.price-box {
+    width: 434px;
+    background: rgba(5, 0, 0, 0.49);
+    border: 1px solid transparent;
+    background: linear-gradient(45deg, #ff67f7, #8504ac); /* Градієнт обводки */
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    
+}
+
+.price-header, .price-fee, .receiving-amount {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: 'Arvo', serif;
+}
+
+.price-header span, .price-fee span, .receiving-amount span {
+    font-weight: normal;
+    color: white;
+}
+
+.divider-line {
+    border: 1px solid #fff; /* Біла розділяюча лінія */
+    width: 100%;
+    height: 0;
     margin-bottom: 10px;
 }
+
+.receiving-amount span {
+    margin-right: 18px; /* Відступ з правого боку */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+.create-btn i {
+    margin-left: 10px;
+    font-size: 20px;
+    
+   
+}
+
+.create-btn:hover {
+    background-position: left center;
+}
+
+.page-content:hover .create-btn {
+    display: block;
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.create-btn {
+    position: relative;
+    top: 20px;
+    bottom: 20px; /* Відстань віднизу */
+    width: 300px;
+    height: 60px;
+    background-image: linear-gradient(to right, #f331d3 0%, #cf33ee 51%, #ce0be7 100%);
+    font-weight: 700;
+    font-size: 22px;
+    padding: 5px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Arvo', serif;
+    
+    
+}
+
+.create-btn i {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.create-btn:hover {
+    background-position: left center;
+}
+
