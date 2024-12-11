@@ -20,6 +20,7 @@ const App = () => {
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/create" element={<Create />} />
               <Route path="/nft/:id" element={<NFTPage />} />
+
           </Routes>
       </Router>
   );

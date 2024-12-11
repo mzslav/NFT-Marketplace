@@ -17,12 +17,12 @@
     justify-content: space-between;
   }
   
-  .nft-image {
+  .nft-image  {
     border-radius: 40px;
     width: 400px; /* Фіксована ширина контейнера */
     height: 400px; /* Фіксована висота контейнера */
     margin-left: 170px; /* Позиціонування */
-    
+     object-fit: cover;
   }
     
 
@@ -74,7 +74,7 @@
   }
   
   /* Ціна */
-  .price-section {
+  .price-section-b {
     margin-top: 28px;
   }
   

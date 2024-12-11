@@ -6,7 +6,15 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import './NFTSlider.css';
 
-const NFTSlider = ({ collectionNFTs }) => {
+const NFTSlider = ({ collectionNFTs, currentNFTCollection }) => {
+  // Фільтруємо NFT, які належать до поточної колекції
+  const filteredNFTs = collectionNFTs.filter(nft => nft.collectionName === currentNFTCollection);
+
+  // Якщо немає NFT для цієї колекції, можемо вивести повідомлення або нічого не показувати
+  if (filteredNFTs.length === 0) {
+    return <p style={{ textAlign: "center", paddingLeft: "500px" }}>No NFTs found in this collection.</p>;
+  }
+
   return (
     <div className="slider-section">
       <h2 className="slider-title">MORE FROM THIS COLLECTION</h2>
@@ -19,7 +27,7 @@ const NFTSlider = ({ collectionNFTs }) => {
           modules={[Pagination, Navigation]}
           className="slider-main"
         >
-          {collectionNFTs.map((nft, index) => (
+          {filteredNFTs.map((nft, index) => (
             <SwiperSlide key={index}>
               {/* Додаємо посилання на сторінку цього NFT */}
               <a href={`/nft/${nft.id}`} className="slider-link">
@@ -36,6 +44,7 @@ const NFTSlider = ({ collectionNFTs }) => {
 
 NFTSlider.propTypes = {
   collectionNFTs: PropTypes.array.isRequired,  // масив для нфт колекції
+  currentNFTCollection: PropTypes.string.isRequired, // Назва поточної колекції
 };
 
 export default NFTSlider;

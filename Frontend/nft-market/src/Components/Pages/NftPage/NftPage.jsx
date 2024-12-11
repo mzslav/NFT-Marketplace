@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 import NFTDetails from "./Components/NFTDetails/NFTDetails";
 import NFTSlider from "./Components/NFTSlider/NFTSlider";
-import { nftData } from "./Components/nftData";
+import { cardData } from "../MarketPage/Components/Data";
 import Header from "../../Header/Header";
 
 const NFTPage = () => {
-  const { id } = useParams(); // Отримуємо параметр `id` із URL
+  const { id } = useParams();
 
-  // Шукаємо відповідний об'єкт NFT у базі за ID
-  const nft = nftData.find((item) => item.id === id);
+  // Шукаємо відповідний об'єкт NFT у cardData за ID
+  const nft = cardData.find((item) => item.id === parseInt(id)); // Пошук по id
 
   // Якщо об'єкт не знайдено, показуємо повідомлення
   if (!nft) {
@@ -18,30 +18,29 @@ const NFTPage = () => {
   // Обробка натискання кнопки
   const handleBuyClick = () => {
     alert(
-      `You have ${nft.isAuction ? "placed a bid" : "bought"} on ${nft.title}!`
+      `You have ${nft.nftStatus === "on auction" ? "placed a bid" : "bought"} on ${nft.title}!`
     );
   };
 
   // Фільтруємо поточне NFT, щоб не показувати його на слайдері
-  const filteredCollectionNFTs = nftData.filter((item) => item.id !== id);
+  const filteredCollectionNFTs = cardData.filter((item) => item.collectionName === nft.collectionName && item.id !== nft.id);
 
   return (
-    
     <div className="nft-page">
-        <Header />
+      <Header />
       <NFTDetails
         title={nft.title}
         price={nft.price}
         imageUrl={nft.imageUrl}
         owner={nft.owner}
-        creator={nft.creator}
+        creator={nft.creator} // Якщо є
         description={nft.description}
-        isAuction={nft.isAuction}
+        isAuction={nft.nftStatus === "on auction"} // Перевіряємо статус аукціону
         onBuyClick={handleBuyClick}
-        collectionName={nft.collectionName} // якщо є
-        collectionNFTs={filteredCollectionNFTs} // передаємо відфільтровані NFT
+        collectionName={nft.collectionName} // Якщо є
       />
-      <NFTSlider collectionNFTs={filteredCollectionNFTs} /> {/* Слайдер з відфільтрованими NFT */}
+      {/* Передаємо колекцію NFT до слайдера */}
+      <NFTSlider collectionNFTs={filteredCollectionNFTs} currentNFTCollection={nft.collectionName} />
     </div>
   );
 };
