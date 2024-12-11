@@ -155,6 +155,7 @@
   font-size: 12px;
   margin-left: 12px;
   margin-bottom: 4px;
+  
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -233,4 +234,8 @@
   /* Додаємо горизонтальний відступ між секціями "Release" та "Price" */
   .release-section + .price-section {
     margin-left: 80px; /* Відступ між двома секціями */
+  }
+
+  .price-section{ 
+    margin-top: 0px;
   }

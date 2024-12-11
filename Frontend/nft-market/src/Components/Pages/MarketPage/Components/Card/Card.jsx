@@ -1,7 +1,15 @@
 import PropTypes from "prop-types"; // Імпортуємо PropTypes для валідації пропсів
+import { useNavigate } from "react-router-dom"; // Для навігації
 import "./Card.css";
 
-const Card = ({ title, author, releaseDate, price, imageUrl }) => {
+const Card = ({ title, owner, releaseDate, price, imageUrl, id }) => {
+  const navigate = useNavigate();
+
+const handleMintClick = () => {
+  navigate(`/nft/${id}`); // Перевірте, що передаєте правильний id
+};
+
+
   return (
     <div className="card">
       <div className="card-image-wrapper">
@@ -12,7 +20,7 @@ const Card = ({ title, author, releaseDate, price, imageUrl }) => {
         />
       </div>
       <div className="card-content">
-        <div className="card-author">{author}</div>
+        <div className="card-author">{owner}</div>
         <h3 className="card-title">{title}</h3>
       </div>
       <div className="card-background">
@@ -29,8 +37,7 @@ const Card = ({ title, author, releaseDate, price, imageUrl }) => {
           </div>
         </div>
       </div>
-      {/* Кнопка "Go Try" з оновленим стилем */}
-      <button className="go-try-btn">
+      <button className="go-try-btn" onClick={handleMintClick}>
         Mint Now
       </button>
     </div>
@@ -39,10 +46,11 @@ const Card = ({ title, author, releaseDate, price, imageUrl }) => {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
   releaseDate: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired, // Додано поле id для використання в URL
 };
 
 export default Card;
