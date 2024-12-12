@@ -207,3 +207,23 @@
     background-color: #1a052b;
   }
   
+
+.bid-input {
+  width: 358px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.bid-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.input-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

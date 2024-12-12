@@ -11,6 +11,7 @@ const NFTDetails = ({
   isAuction,
   onBuyClick,
   collectionName,
+  onPriceChange,
 }) => {
   return (
     <div className="nft-details-container">
@@ -37,6 +38,19 @@ const NFTDetails = ({
             <p className="price">{price || "N/A"}</p>
           </div>
           <div className="separator"></div>
+
+          {/* Імпут для введення ціни */}
+          {isAuction && (
+            <div className="input-container">
+              <input
+                type="text"
+                placeholder="Enter your bid"
+                className="bid-input"
+                onChange={onPriceChange}
+              />
+            </div>
+          )}
+
           <div className="button-container-b">
             <button className="buy-now-button" onClick={onBuyClick}>
               {isAuction ? "Place Bid" : "Buy Now"}
@@ -66,6 +80,7 @@ NFTDetails.propTypes = {
   onBuyClick: PropTypes.func.isRequired,
   collectionName: PropTypes.string.isRequired,
   collectionNFTs: PropTypes.array.isRequired,
+  onPriceChange: PropTypes.func.isRequired,  
 };
 
 export default NFTDetails;
