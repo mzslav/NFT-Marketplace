@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Marketplace from './Components/Pages/MarketPage/MarketPage';
 import Create from './Components/Pages/CreatePage/CreatePage';
 import NFTPage from './Components/Pages/NftPage/NftPage';
+import ProfilePage from './Components/Pages/UserProfilePage/UserProfilePage';
 
 const root = document.getElementById('root');
 root.style.maxWidth = 'none';
@@ -20,6 +21,7 @@ const App = () => {
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/create" element={<Create />} />
               <Route path="/nft/:id" element={<NFTPage />} />
+              <Route path="/profile/:id" element={<ProfilePage />} />
 
           </Routes>
       </Router>
