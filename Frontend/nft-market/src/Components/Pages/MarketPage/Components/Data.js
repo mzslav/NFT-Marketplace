@@ -2,8 +2,9 @@
 export const cardData = [
   {
     id: 444,
-    title: "Monkey-Trip",
+    title: "Monkey-Trip1",
     owner: "mzslav",
+    ownerMetaMaskAddress: "0xUser1", // Прив'язка до blockchainData
     releaseDate: "01/11/2024",
     price: "0.012 ETH",
     imageUrl: "https://cdn.prod.website-files.com/6615636a03a6003b067c36dd/661ffd0dbe9673d914edca2d_6423fc9ca8b5e94da1681a70_Screenshot%25202023-03-29%2520at%252010.53.43.jpeg",
@@ -15,7 +16,8 @@ export const cardData = [
   {
     id: 1,
     title: "Sunset Art1",
-    owner: "john_doe",
+    owner: "mzslav",
+    ownerMetaMaskAddress: "0xUser2", // Прив'язка до blockchainData
     releaseDate: "10/11/2024",
     price: "0.04 ETH",
     imageUrl: "https://pikuco.ru/upload/test_stable/fa5/fa5d72ebf73a583f7a7f52e3efa5a452.webp",
@@ -31,6 +33,7 @@ export const cardData = [
     id: 2,
     title: "Ocean Breeze",
     owner: "jane_doe",
+    ownerMetaMaskAddress: "0xUser3", // Прив'язка до blockchainData
     releaseDate: "05/12/2024",
     price: "0.03 ETH",
     imageUrl: "https://i.pinimg.com/736x/c3/46/10/c3461077fc8bb8613abf7ea956bc4708.jpg",
