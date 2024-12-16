@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
+:root {
+    --font-family: 'Arial', sans-serif;
+}
+
+
+
+.main-block {
+    margin-top: 60px;
+    position: relative;
+    height: 700px; /* Висота блоку залишиться незмінною */
+    width: calc(100vw - 17px); /* 17px - стандартна ширина scrollbar */
+    display: flex;
+    align-items: center; /* Центрує контент по вертикалі */
+    justify-content: flex-start; /* Контент починається зліва */
+    
+
+}
+
+.main-block-content {
+    position: absolute;
+    top: 100px; /* Відступ від хедера */
+    left: 180px; /* Зміщує контент від лівого краю на 50px */
+    max-width: 100%; /* Контент займає всю ширину */
+    box-sizing: border-box; /* Включає padding у загальний розмір */
+}
+
+.main-block-title {
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    font-size: 64px;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+    width: 400px;
+}
+
+.main-block-subtitle {
+    font-family: 'Afacad', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.2;
+    color: #aba7a7;
+    margin: 10px 0 0 0;
+    text-align: left;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.main-block-subtitle .highlighted {
+    background: linear-gradient(90deg, #be77c7 0%, #352c99 100%); /* Фіолетовий градієнт */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.glass-card {
+    position: absolute;
+    top: 100px; /* Відстань від хедера */
+    left: calc(100% - 640px); /* Відстань від правого краю */
+    width: 440px;
+    height: 429px;
+    background: linear-gradient(138deg, rgba(36, 36, 36, 0.507) 0%, rgba(138, 138, 138, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонка і прозора біла межа */
+    border-radius: 40px;
+    box-sizing: border-box;
+    padding: 20px;
+    z-index: 1;
+}
+
+.glass-card .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заповнює картку без спотворення */
+    border-radius: 30px;
+}
+ 
+.main-block-btn {
+    background-image: linear-gradient(to right, #f331d3 0%, #cf33ee 51%, #ce0be7 100%);
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    width: 200px; /* Ширина для відповідності */
+    height: 45px; /* Висота для відповідності */
+    position: absolute; /* Абсолютне позиціювання */
+    top: 266px; /* Позиція для відповідності */
+}
+
+.main-block-btn i {
+    margin-left: 10px; /* Відстань між текстом і іконкою */
+    font-size: 20px; /* Розмір іконки */
+}
+
+.main-block-btn:hover {
+    background-position: right center; /* Зміна напрямку градієнту */
+    color: #fff;
+    text-decoration: none;
+}

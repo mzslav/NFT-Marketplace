@@ -1,0 +1,38 @@
+/* Стилі для напису Preview */
+.preview-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: -55px;
+    margin-top: 130px;
+  }
+  
+  /* Основний контейнер для всіх елементів */
+  .page-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 20px; /* Додаємо відступ зверху для всієї секції */
+    
+    
+  }
+  
+  /* Контейнер для InputBlock, зліва */
+  .input-block {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  /* Контейнер для картки, щоб вона була праворуч */
+  .PreviewCard {
+    width: 300px; /* Можеш задати потрібну ширину картки */
+    margin-left: 200px; /* Зменшено відступ для того, щоб картка була лівіше */
+    position: -webkit-sticky; /* Для підтримки старіших браузерів */
+    position: sticky; /* Картка буде прилипати до верхнього краю екрану */
+    top: 20px; /* Відступ від верхнього краю екрану */
+    z-index: 10; /* Щоб картка не була закрита іншими елементами */
+    padding-top: 100px; /* Відступ зверху для картки */
+    
+  }
+  

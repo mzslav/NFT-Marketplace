@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap');
+
+
+.upper-block {
+    margin-top: 120px; /* Відступ зверху */
+    margin-left: 240px; /* Відступ зліва */
+    text-align: left; /* Вирівнювання тексту ліворуч */
+    background-image: url('your-image-url.jpg');
+    background-size: cover; /* Фон покриває весь контейнер */
+    background-position: center; /* Фон вирівнюється по центру */
+    background-repeat: no-repeat; /* Фон не повторюється */
+
+}
+
+.title {
+    background: linear-gradient(90deg, #fff 0%, #9f9191 100%); /* Градієнт зверху вниз */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    font-size: 64px;
+    color: #fff;
+
+    margin: 0; /* Приберіть зайві відступи */
+    padding: 0; /* Приберіть зайві внутрішні відступи */
+}
+
+.filter-container {
+    margin-top: 30px; /* Відступ від заголовка вниз */
+    display: flex;
+    align-items: center; /* Вирівнювання по вертикалі */
+}
+
+/* Градієнтна обводка для кнопок */
+.button-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 2px; /* Ширина градієнта */
+    background: linear-gradient(
+        to bottom right,
+        rgba(97, 12, 135, 1) 0%, 
+        rgba(183, 4, 184, 1) 30%, 
+        rgba(213, 47, 203, 1) 60%, 
+        rgba(165, 156, 219, 1) 100%
+    ); /* Ваш фіолетовий градієнт */
+    border-radius: 12px;
+    margin-right: 50px; /* Відступ між кнопками */
+}
+
+.filter-button {
+    width: 140px;
+    height: 38px;
+    border-radius: 10px;
+    background: #110321;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background: #1a052b; /* Ефект при наведенні */
+    box-shadow: 20px 0 150px #ff00aa, -20px 0 150px #a83dff;
+}
+
+/* Тільки обводка з градієнтом для текстових полів */
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 2px; /* Ширина градієнта */
+    border-radius: 12px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(97, 12, 135, 1) 0%, 
+        rgba(183, 4, 184, 1) 30%, 
+        rgba(213, 47, 203, 1) 60%, 
+        rgba(165, 156, 219, 1) 100%
+    ); /* Ваш фіолетовий градієнт */
+    margin-right: 20px; /* Відступ між текстовими полями */
+}
+
+.filter-input {
+    width: 200px; /* Для пошуку по автору */
+    height: 38px;
+    border-radius: 10px;
+    border: none; /* Прибираємо стандартний бордюр */
+    background: #110321; /* Темний фон текстового поля */
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 1; /* Щоб текстове поле залишалось вище градієнта */
+    position: relative;
+    font-weight: bold;
+}
+
+.input-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px; /* Ширина обводки */
+    background: linear-gradient(
+        to bottom right,
+        rgba(97, 12, 135, 1) 0%, 
+        rgba(183, 4, 184, 1) 30%, 
+        rgba(213, 47, 203, 1) 60%, 
+        rgba(165, 156, 219, 1) 100%
+    ); /* Ваш фіолетовий градієнт */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: 0;
+    
+}

@@ -1,0 +1,160 @@
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 120px; /* Відступи між картками */
+    justify-content: flex-start; /* Вирівнювання карток від початку */
+    align-items: start; /* Вирівнювання по вертикалі */
+}
+
+.card:nth-child(3n+1) {
+    margin-left: 230px; /* Відступ для кожної першої картки нового рядка */
+}
+
+.card:not(:nth-child(3n+1)) {
+    margin-left: 0; /* Відсутність відступу для інших карток */
+}
+
+/* Контейнер для кнопки з градієнтною обводкою */
+.button-container {
+    position: relative;
+    display: inline-block;
+    padding: 2px; /* Ширина градієнта */
+    background: linear-gradient(
+      to bottom right,
+      rgba(97, 12, 135, 1) 0%, 
+      rgba(183, 4, 184, 1) 30%, 
+      rgba(213, 47, 203, 1) 60%, 
+      rgba(165, 156, 219, 1) 100%
+    ); /* Фіолетовий градієнт */
+    border-radius: 12px;
+    margin-top: 3px; /* Відступ від карток */
+    margin-left: 754px;
+    margin-bottom: 40px;
+  }
+  
+  /* Стиль кнопки */
+  .load-more-btn {
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 160px;
+    height: 48px;
+    background: #110321;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    box-sizing: border-box;
+    position: relative; /* Абсолютне позиціонування кнопки */
+  }
+  
+  /* Псевдоелемент для градієнтної обводки */
+  .load-more-btn::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, 
+      rgba(97, 12, 135, 1) 0%, 
+      rgba(183, 4, 184, 1) 30%, 
+      rgba(213, 47, 203, 1) 60%, 
+      rgba(165, 156, 219, 1) 100%
+    );
+    z-index: -1; /* Псевдоелемент позаду кнопки */
+  }
+  
+  /* Стиль кнопки при наведенні */
+  .load-more-btn:hover {
+    z-index: 0;
+    box-shadow: 20px 0 200px #ff00aa, -20px 0 200px #a83dff;
+    background-color: #1a052b; 
+  }
+  
+
+
+
+  @media (width: 1920px) {
+    .card-list {
+      gap: 30px 70px; /* Зменшуємо відступи між картками */
+    }
+  
+    .card:nth-child(4n+1) {
+      margin-left: 200px; /* Зменшуємо відступ для кожної першої картки */
+    }
+
+    .card:not(:nth-child(4n+1)) {
+        margin-left: 0; /* Відсутність відступу для інших карток */
+    }
+
+
+    /* Контейнер для кнопки з градієнтною обводкою */
+.button-container {
+    position: relative;
+    display: inline-block;
+    padding: 2px; /* Ширина градієнта */
+    background: linear-gradient(
+      to bottom right,
+      rgba(97, 12, 135, 1) 0%, 
+      rgba(183, 4, 184, 1) 30%, 
+      rgba(213, 47, 203, 1) 60%, 
+      rgba(165, 156, 219, 1) 100%
+    ); /* Фіолетовий градієнт */
+    border-radius: 12px;
+    margin-top: 30px; 
+    margin-left: 870px;
+    margin-bottom: 40px;
+  }
+  
+  /* Стиль кнопки */
+  .load-more-btn {
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 160px;
+    height: 48px;
+    background: #110321;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    box-sizing: border-box;
+    position: relative; /* Абсолютне позиціонування кнопки */
+  }
+  
+  /* Псевдоелемент для градієнтної обводки */
+  .load-more-btn::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, 
+      rgba(97, 12, 135, 1) 0%, 
+      rgba(183, 4, 184, 1) 30%, 
+      rgba(213, 47, 203, 1) 60%, 
+      rgba(165, 156, 219, 1) 100%
+    );
+    z-index: -1; /* Псевдоелемент позаду кнопки */
+  }
+  
+  /* Стиль кнопки при наведенні */
+  .load-more-btn:hover {
+    z-index: 0;
+    box-shadow: 20px 0 200px #ff00aa, -20px 0 200px #a83dff;
+    background-color: #1a052b; 
+  }
+
+  }
