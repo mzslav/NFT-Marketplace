@@ -1,0 +1,72 @@
+.collection-info-container {
+    padding-left: 150px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Вирівнювання по лівому краю */
+  }
+  
+  .collection-name-p{
+    font-weight: 700;
+    font-size: 64px;
+    color: #fff;
+    text-align: center;
+    margin-left: 385px;
+  }
+  
+  .creator-info {
+    font-size: 16px;
+    color: #bbb;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 150px; /* Відступ 150px від лівого краю */
+  }
+  
+  .collection-description {
+    font-size: 18px;
+    color: #ddd;
+    margin-top: 10px;
+    width: 600px;
+    height: 70px;
+  }
+  
+  .input-name {
+    border-radius: 10px;
+    width: 600px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    margin-left: 150px; /* Відступ 150px від лівого краю */
+    background-color: #f3f3f3; /* Додаємо фон для інпуту */
+  }
+  
+  .info-block {
+    border-radius: 20px;
+    width: 500px;
+    height: 198px;
+    background-color: #2222222a;
+    margin-left: 150px; /* Відступ правіше від інпуту */
+    margin-top: 50px; /* Відступ від тайтлу */
+    padding: 30px 20px;
+    
+  }
+  
+  .info-item {
+    margin-bottom: 20px; /* Відступ між елементами */
+    
+  }
+  
+  .info-title {
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px; /* Відступ між текстом та лінією */
+  }
+  
+  .underline {
+    border: 1px solid #fff;
+    width: 100%;
+    height: 0px;
+    margin-bottom: 10px; /* Відступ між лінією та наступним елементом */
+  }
+  
