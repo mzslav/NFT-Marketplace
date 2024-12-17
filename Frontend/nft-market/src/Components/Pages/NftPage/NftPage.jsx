@@ -1,46 +1,72 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 import NFTDetails from "./Components/NFTDetails/NFTDetails";
 import NFTSlider from "./Components/NFTSlider/NFTSlider";
-import { cardData } from "../MarketPage/Components/Data";
 import Header from "../../Header/Header";
 
 const NFTPage = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Отримуємо ID з URL
+  const [nft, setNft] = useState(null); // Стейт для NFT-даних
+  const [loading, setLoading] = useState(true); // Стейт для завантаження
+  const [error, setError] = useState(null); // Стейт для помилок
 
-  // Шукаємо відповідний об'єкт NFT у cardData за ID
-  const nft = cardData.find((item) => item.id === parseInt(id)); // Пошук по id
+  // Функція для отримання даних про NFT
+  useEffect(() => {
+    const fetchNft = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3500/nft/${id}`); // Запит на сервер
+        if (response.data.success) {
+          setNft(response.data.data); // Зберігаємо дані NFT у стейт
+        } else {
+          setError("NFT not found");
+        }
+      } finally {
+        setLoading(false); // Завантаження завершено
+      }
+    };
 
-  // Якщо об'єкт не знайдено, показуємо повідомлення
-  if (!nft) {
-    return <p style={{ textAlign: "center" }}>NFT not found</p>;
+    fetchNft();
+  }, [id]);
+
+  if (loading) {
+    return <p style={{ textAlign: "center" }}>Loading...</p>;
   }
 
-  // Обробка натискання кнопки
+  if (error) {
+    return <p style={{ textAlign: "center", color: "red" }}>{error}</p>;
+  }
+
+  // Якщо дані отримано, відображаємо сторінку
   const handleBuyClick = () => {
     alert(
-      `You have ${nft.nftStatus === "on auction" ? "placed a bid" : "bought"} on ${nft.title}!`
+      `You have ${
+        nft.NftStatus === "on auction" ? "placed a bid" : "bought"
+      } on ${nft.title}!`
     );
   };
 
-  // Фільтруємо поточне NFT, щоб не показувати його на слайдері
-  const filteredCollectionNFTs = cardData.filter((item) => item.collectionName === nft.collectionName && item.id !== nft.id);
+  // Фільтруємо колекцію для слайдера
+  const filteredCollectionNFTs = []; // Зробіть окремий запит для колекції, якщо потрібно
 
   return (
     <div className="nft-page">
       <Header />
       <NFTDetails
         title={nft.title}
-        price={nft.price}
+        price={`${nft.price} ETH`}
         imageUrl={nft.imageUrl}
         owner={nft.owner}
-        creator={nft.creator} // Якщо є
+        creator={nft.creatorId}
         description={nft.description}
-        isAuction={nft.nftStatus === "on auction"} // Перевіряємо статус аукціону
+        isAuction={nft.NftStatus === "on auction"}
         onBuyClick={handleBuyClick}
-        collectionName={nft.collectionName} // Якщо є
+        collectionName={nft.collectionName || "Unknown"}
       />
-      {/* Передаємо колекцію NFT до слайдера */}
-      <NFTSlider collectionNFTs={filteredCollectionNFTs} currentNFTCollection={nft.collectionName} />
+      <NFTSlider
+        collectionNFTs={filteredCollectionNFTs}
+        currentNFTCollection={nft.collectionName || "Unknown"}
+      />
     </div>
   );
 };

@@ -1,51 +1,66 @@
 import { useState, useEffect } from "react";
 import Card from "../Card/Card";
-import { cardData } from "../Data"; // Імпортуємо дані з Data.js
 import "./CardList.css";
 
 const CardList = () => {
-  // Стейт для відображення карток
+  const [cards, setCards] = useState([]); // Стейт для карток
   const [visibleCards, setVisibleCards] = useState(6); // Початково 6 карток
+  const [loading, setLoading] = useState(true); // Стейт для індикатора завантаження
+
+  useEffect(() => {
+    const fetchNFTs = async () => {
+      try {
+        const response = await fetch("http://localhost:3500/marketplace"); // Ваш API endpoint
+        const data = await response.json();
+        if (data.success) {
+          setCards(data.data); // Зберігаємо отримані NFT
+          setLoading(false); // Завантаження завершено
+        } else {
+          console.error("Failed to fetch NFTs:", data.message);
+        }
+      } catch (error) {
+        console.error("Error fetching NFTs:", error);
+      }
+    };
+
+    fetchNFTs();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 1920) {
-        setVisibleCards(8);
-      } else {
-        setVisibleCards(6); // Для менших екранів встановлюємо 6 карток
-      }
+      setVisibleCards(screenWidth >= 1920 ? 8 : 6);
     };
 
-    window.addEventListener('resize', handleResize);
-
-    // Оновлюємо значення при першому рендері
+    window.addEventListener("resize", handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const loadMoreCards = () => {
     setVisibleCards(visibleCards + 6);
   };
 
+  if (loading) {
+    return <div>Loading NFTs...</div>;
+  }
+
   return (
     <div className="card-list">
-      {cardData.slice(0, visibleCards).map((card, index) => (
+      {cards.slice(0, visibleCards).map((card, index) => (
         <Card
           key={index}
-          id={card.id} // Передача id кожної картки для використання в маршруті
+          id={card._id}
           title={card.title}
-          owner={card.owner}
-          releaseDate={card.releaseDate}
-          price={card.price}
+          owner={card.creatorId?.username || "Unknown"} // Відображаємо ім'я творця
+          releaseDate={new Date(card.createdAt).toLocaleDateString()} // Форматуємо дату
+          price={`${card.price} ETH`}
           imageUrl={card.imageUrl}
         />
       ))}
 
-      {/* Кнопка для завантаження наступних карток */}
-      {visibleCards < cardData.length && (
+      {visibleCards < cards.length && (
         <div className="button-container">
           <button onClick={loadMoreCards} className="load-more-btn">
             Show More

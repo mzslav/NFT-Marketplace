@@ -60,6 +60,10 @@ const NftSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Log',
     },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+      },
     
 },
 
