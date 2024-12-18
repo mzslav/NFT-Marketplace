@@ -20,7 +20,7 @@ app.get('/marketplace',NftController.GetAllNFT);
 
 app.get('/nft/:id',NftController.GetNftInfo);
 
-app.post('/profile/connect',UserController.connectUser);
+app.post('/user/connect',UserController.connectUser);
 
 app.post('/nft/:id/buy',authenticateJWT,NftController.buyNft);
 

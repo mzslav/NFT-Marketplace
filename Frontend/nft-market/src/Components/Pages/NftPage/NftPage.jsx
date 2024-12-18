@@ -56,8 +56,8 @@ const NFTPage = () => {
         title={nft.title}
         price={`${nft.price} ETH`}
         imageUrl={nft.imageUrl}
-        owner={nft.owner}
-        creator={nft.creatorId}
+        owner={nft.owner.username}
+        creator={nft.creatorId.username}
         description={nft.description}
         isAuction={nft.NftStatus === "on auction"}
         onBuyClick={handleBuyClick}

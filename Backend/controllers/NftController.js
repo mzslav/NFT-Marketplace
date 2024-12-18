@@ -69,7 +69,10 @@ export const GetNftInfo = async (req,res) => {
 
 
         // Шукаємо NFT по назві (регулярний вираз для нечутливого до регістру пошуку)
-        const nft = await NftModel.findById(id);
+        const nft = await NftModel.findById(id)
+        .populate('creatorId', 'username')
+        .populate('owner', 'username');
+
 
         if (!nft) {
             return res.status(404).json({ message: 'NFT not found' });

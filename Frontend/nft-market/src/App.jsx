@@ -7,6 +7,7 @@ import NFTPage from './Components/Pages/NftPage/NftPage';
 import ProfilePage from './Components/Pages/UserProfilePage/UserProfilePage';
 import CollectionPage from './Components/Pages/CollectionPage/CollectionPage';
 
+
 const root = document.getElementById('root');
 root.style.maxWidth = 'none';
 root.style.margin = '0';
@@ -22,8 +23,8 @@ const App = () => {
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/create" element={<Create />} />
               <Route path="/nft/:id" element={<NFTPage />} />
-              <Route path="/profile/:id" element={<ProfilePage />} />
               <Route path="/collection/:collectionId" element={<CollectionPage />} />
+              <Route path="/user/:metaMaskAddress" element={<ProfilePage />} />
 
           </Routes>
       </Router>

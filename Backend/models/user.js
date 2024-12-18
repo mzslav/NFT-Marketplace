@@ -5,11 +5,11 @@ const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         unique: true,
+        required: true,
     },
 
     email: {
         type: String,
-        unique: true,
     },
 
     metaMaskAddress: {
@@ -24,11 +24,6 @@ const UserSchema = new mongoose.Schema({
     ownedNFTs: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Nft',
-    },
-    purchaseLog: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Log',  
-        
     },
 
     profilePicture:String,
