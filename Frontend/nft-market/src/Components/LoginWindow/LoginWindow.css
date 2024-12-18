@@ -1,0 +1,109 @@
+/* Задній фон */
+.login-window-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Вікно */
+.login-window {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px 40px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+/* Закрити */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Статичний текст */
+.white-text {
+  color: white;
+}
+
+/* Група форм */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+.form-group input {
+  width: calc(100% - 10px);
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Поле для адреси */
+.user-address-label {
+  display: block;
+  font-weight: bold;
+  color: white;
+}
+
+.user-address {
+  display: block;
+  margin-top: 5px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Кнопка */
+.submit-btn {
+  background-image: linear-gradient(to right, #f331d3 0%, #cf33ee 51%, #ce0be7 100%);
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  cursor: pointer;
+  width: calc(100% - 40px); /* Зберігаємо ширину */
+  height: auto; /* Адаптивна висота */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.submit-btn:hover {
+  background-position: right center;
+}

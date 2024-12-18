@@ -4,13 +4,13 @@ import { useParams } from 'react-router-dom';
 import UserNFTSlider from './Components/UserNFTSlider/UserNFTSlider';
 
 const ProfilePage = () => {
-  const { id } = useParams(); // Отримуємо id користувача з URL
+  const { metaMaskAddress } = useParams(); // Отримуємо id користувача з URL
 
   return (
     <>
       <Header />
-      <ProfileStats userAddress={id} />
-      <UserNFTSlider userAddress={id} />
+      <ProfileStats userAddress={metaMaskAddress} />
+      <UserNFTSlider userAddress={metaMaskAddress} />
 
     </>
   );
