@@ -25,11 +25,6 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Nft',
     },
-    purchaseLog: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Log',  
-        
-    },
 
     profilePicture:String,
 },
