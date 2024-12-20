@@ -56,13 +56,14 @@ const NFTPage = () => {
         title={nft.title}
         price={`${nft.price} ETH`}
         imageUrl={nft.imageUrl}
-        owner={nft.owner.username}
-        creator={nft.creatorId.username}
+        owner={nft.owner ? nft.owner.username : "Unknown"} // Перевірка на null
+        creator={nft.creatorId ? nft.creatorId.username : "Unknown"} // Перевірка на null
         description={nft.description}
         isAuction={nft.NftStatus === "on auction"}
         onBuyClick={handleBuyClick}
         collectionName={nft.collectionName || "Unknown"}
       />
+
       <NFTSlider
         collectionNFTs={filteredCollectionNFTs}
         currentNFTCollection={nft.collectionName || "Unknown"}
