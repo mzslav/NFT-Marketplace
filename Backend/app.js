@@ -21,6 +21,8 @@ app.get('/marketplace',NftController.GetAllNFT);
 app.get('/nft/:id',NftController.GetNftInfo);
 
 app.post('/user/connect',UserController.connectUser);
+app.post('/user/verify-token', UserController.verifyToken);
+
 
 app.post('/nft/:id/buy',authenticateJWT,NftController.buyNft);
 

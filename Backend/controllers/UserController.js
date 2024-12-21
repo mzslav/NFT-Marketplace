@@ -66,3 +66,24 @@ export const getAllUsers = async (req, res) => {
         });
     }
 };
+
+
+export const verifyToken = async (req, res) => {
+  try {
+    const { token } = req.body;
+    const decoded = jwt.verify(token, 'zhyhul'); // Використовуйте свій секретний ключ
+
+    const user = await UserModel.findById(decoded.id);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    return res.json({
+      success: true,
+      user: { id: user._id, metaMaskAddress: user.metaMaskAddress, username: user.username },
+    });
+  } catch (error) {
+    console.error("Token verification failed:", error.message);
+    res.status(401).json({ success: false, message: 'Invalid or expired token' });
+  }
+};
