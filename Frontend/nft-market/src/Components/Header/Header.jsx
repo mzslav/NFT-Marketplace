@@ -87,13 +87,14 @@ const Header = () => {
   return (
     <>
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-        {account ? (
-          <a href={`/user/${account}`} className="meta-address">
-            {`${account.slice(0, 6)}...${account.slice(-4)}`}
-          </a>
-        ) : (
-          <button className="header-btn" onClick={connectWallet}>Connect</button>
-        )}
+      {account ? (
+  <a href={`/user/info`} className="meta-address">
+    {`${account.slice(0, 6)}...${account.slice(-4)}`}
+  </a>
+) : (
+  <button className="header-btn" onClick={connectWallet}>Connect</button>
+)}
+
         <a href="/create" className="create">Create NFT</a>
         <a href="/marketplace" className="market">Marketplace</a>
         <a href="/marketplace" className="about">About the platform</a>
