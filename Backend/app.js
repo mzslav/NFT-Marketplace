@@ -27,6 +27,7 @@ app.post('/user/verify-token', UserController.verifyToken);
 app.post('/nft/:id/buy',authenticateJWT,NftController.buyNft);
 
 app.get('/users',UserController.getAllUsers);
+app.get('/user/info', checkToken, UserController.getUserProfile);
 
 
 
