@@ -66,3 +66,95 @@ export const getAllUsers = async (req, res) => {
         });
     }
 };
+
+
+export const verifyToken = async (req, res) => {
+  try {
+    const { token } = req.body;
+    const decoded = jwt.verify(token, 'zhyhul'); // Використовуйте свій секретний ключ
+
+    const user = await UserModel.findById(decoded.id);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    return res.json({
+      success: true,
+      user: { id: user._id, metaMaskAddress: user.metaMaskAddress, username: user.username },
+    });
+  } catch (error) {
+    console.error("Token verification failed:", error.message);
+    res.status(401).json({ success: false, message: 'Invalid or expired token' });
+  }
+};
+
+
+export const getUserProfile = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+      return res.status(400).json({
+          success: false,
+          message: 'Validation failed',
+          errors: errors.array()
+      });
+  }
+
+  try {
+      // Отримуємо метамаск адресу з токену
+      const { metaMaskAddress } = req;
+
+      // Знайти користувача по метамаск адресу
+      const user = await UserModel.findOne({ metaMaskAddress }).select("-password"); // Вибираємо всі поля, крім пароля
+
+      if (!user) {
+          return res.status(404).json({
+              success: false,
+              message: 'User not found',
+          });
+      }
+
+      // Отримуємо NFT, якими володіє користувач
+      const nfts = await NftModel.find({ owner: user._id });
+
+      // Підрахуємо кількість покупок, продажів і NFT користувача
+      const purchases = await NftModel.countDocuments({ owner: user._id });
+      const sales = await NftModel.countDocuments({ creatorId: user._id, owner: { $ne: user._id } });
+
+      // Створюємо масив для NFT
+      const nftsData = nfts.map(nft => ({
+          id: nft._id,
+          title: nft.title,
+          releaseDate: nft.createdAt.toLocaleDateString(),
+          price: nft.price ? `${nft.price} ETH` : "Not for sale",
+          imageUrl: nft.imageUrl,
+          description: nft.description,
+          isAuction: nft.isAuctioned,
+          collectionName: nft.collectionName,
+          auctionStart: nft.auctionStatus === 'active' ? nft.createdAt.toLocaleDateString() : null,
+          auctionEnd: nft.auctionEndTime ? nft.auctionEndTime.toLocaleDateString() : null,
+          nftStatus: nft.NftStatus,
+      }));
+
+      // Створюємо відповідь
+      const response = {
+          userAddress: user.metaMaskAddress,
+          username: user.username,
+          purchases: purchases || 0,
+          sales: sales || 0,
+          totalNFTs: nfts.length || 0,
+          nfts: nftsData,
+      };
+
+      res.json({
+          success: true,
+          message: 'User profile retrieved successfully',
+          data: response,
+      });
+  } catch (error) {
+      console.log(error);
+      res.status(500).json({
+          success: false,
+          message: 'Failed to retrieve user profile',
+      });
+  }
+};

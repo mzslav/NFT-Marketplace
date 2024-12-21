@@ -1,25 +1,33 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
-import { blockchainData } from '../../BlockchainData'; // Мок-файл з даними про користувачів
-import "./ProfileStats.css"; // Підключення CSS-файлу
+import './ProfileStats.css';
 
 const ProfileStats = ({ userAddress }) => {
   const [userProfile, setUserProfile] = useState(null);
   const [avatar, setAvatar] = useState("https://www.webiconio.com/_upload/255/image_255.svg"); // дефолтне зображення
 
   useEffect(() => {
-    const user = blockchainData.find(data => data.userAddress === userAddress);
+    if (!userAddress) return;
 
-    if (user) {
-      setUserProfile({
-        name: user.username,
-        address: user.userAddress,
-        balance: user.totalBalance,
-        purchases: user.purchases,
-        sales: user.sales,
-        totalNFTs: user.purchases + user.sales, // Загальна кількість NFT
-      });
-    }
+    // Запит на отримання профілю користувача за його адресою
+    fetch(`http://localhost:3500/user/info`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success && data.data.userAddress === userAddress) {
+        setUserProfile({
+          name: data.data.username,
+          address: data.data.userAddress,
+          balance: data.data.totalBalance, // Тут потрібно буде коректно обробити баланс, якщо потрібно
+          purchases: data.data.purchases,
+          sales: data.data.sales,
+          totalNFTs: data.data.totalNFTs,
+        });
+      }
+    });
   }, [userAddress]);
 
   const handleAvatarChange = (event) => {

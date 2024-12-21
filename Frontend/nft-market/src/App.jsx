@@ -24,7 +24,7 @@ const App = () => {
               <Route path="/create" element={<Create />} />
               <Route path="/nft/:id" element={<NFTPage />} />
               <Route path="/collection/:collectionId" element={<CollectionPage />} />
-              <Route path="/user/:metaMaskAddress" element={<ProfilePage />} />
+              <Route path="/user/info" element={<ProfilePage />} />
 
           </Routes>
       </Router>

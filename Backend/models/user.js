@@ -17,20 +17,31 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+
     balance: {
         type: Number,
         default: 0,
     },
-    ownedNFTs: {
+
+    ownedNFTs: [{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Nft',
+    }],
+
+    purchases: {
+        type: Number,
+        default: 0,  // Кількість покупок
     },
 
-    profilePicture:String,
-},
-{
+    sales: {
+        type: Number,
+        default: 0,  // Кількість продажів
+    },
+
+    profilePicture: String,
+
+}, {
     timestamps: true,
-},
-);
+});
 
 export default mongoose.model('User', UserSchema);

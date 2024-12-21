@@ -17,10 +17,10 @@ const NftSchema = new mongoose.Schema({
         ref: 'User',  
         immutable: true 
     },
+
     owner: {  
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',  
- 
     },
 
     imageUrl: {
@@ -50,27 +50,30 @@ const NftSchema = new mongoose.Schema({
 
     NftStatus: {
         type: String,
-        enum: ['on sale', 'sold', 'on auction','created'],  
+        enum: ['on sale', 'sold', 'on auction', 'created'],  
         default: 'created',
     },
+
     blockchainAddress: {
         type: String,
     },
+
     transactionHistory: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Log',
+    },
+
+    collectionName: { // Нове поле для зберігання назви колекції
+        type: String,
     },
     createdAt: {
         type: Date,
         default: Date.now,
       },
-    
-},
 
-{
-    timestamp: true,
-},
-);
+}, {
+    timestamps: true,
+});
 
 NftSchema.pre('save', function(next) {
     if (!this.owner) {
@@ -78,6 +81,5 @@ NftSchema.pre('save', function(next) {
     }
     next();
 });
-
 
 export default mongoose.model('Nft', NftSchema);

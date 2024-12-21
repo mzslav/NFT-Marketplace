@@ -2,6 +2,7 @@ import { express, jwt,validationResult, connectDB,
     registerValidation,NftValidation,UserModel,user,
     nft,NftModel,checkToken,authenticateJWT } 
 from '../imports/index.js';
+import LogModel from '../models/log.js'
 
 
 export const AddNewNft = async (req, res) => {
@@ -10,14 +11,13 @@ export const AddNewNft = async (req, res) => {
         return res.status(400).json({
             success: false,
             message: 'Validation failed',
-            errors: errors.array() 
+            errors: errors.array()
         });
     }
     try {
+        const { title, description, creatorId, imageUrl, price, auctionStatus,
+        auctionEndTime, userId, isAuctioned, NftStatus, blockchainAddress } = req.body;
 
-        const { title, description, creatorId, imageUrl,price,auctionStatus,
-        auctionEndTime,userId,isAuctioned,NftStatus,blockchainAddress,transactionHistory} = req.body;
-        
         if (isAuctioned && !auctionEndTime) {
             return res.status(400).json({
                 success: false,
@@ -25,6 +25,7 @@ export const AddNewNft = async (req, res) => {
             });
         }
 
+        // Додавання нового NFT
         const nftData = {
             title,
             description,
@@ -36,14 +37,26 @@ export const AddNewNft = async (req, res) => {
             auctionEndTime,
             owner: req.userId || creatorId,
             blockchainAddress,
-            transactionHistory,
             NftStatus,
         };
 
-       
         const newNft = new NftModel(nftData);
 
-          let nft = await newNft.save();
+        let nft = await newNft.save();
+
+        // Створення нового запису в Log після збереження NFT
+        const logData = {
+            nftID: nft._id,
+            transactionDate: new Date(),
+            operationPrice: price, // Ви можете додавати інші дані за необхідності
+        };
+
+        const newLog = new LogModel(logData);
+        let log = await newLog.save();
+
+        // Оновлення NFT з посиланням на новий запис в Log
+        nft.transactionHistory = log._id;
+        await nft.save();
 
         res.json({
             success: true,
@@ -51,7 +64,7 @@ export const AddNewNft = async (req, res) => {
             nft
         });
     } catch (error) {
-        console.log(error);  
+        console.log(error);
         res.status(500).json({
             success: false,
             message: 'Failed to add NFT'
