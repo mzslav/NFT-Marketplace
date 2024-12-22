@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const NftSchema = new mongoose.Schema({
-    
     title: {
         type: String,
         required: true,
@@ -30,6 +29,9 @@ const NftSchema = new mongoose.Schema({
 
     price: {
         type: Number,
+        required: function () {
+            return this.NftStatus === 'on sale' || this.NftStatus === 'on auction';
+        },
     },
 
     isAuctioned: {  
@@ -45,7 +47,7 @@ const NftSchema = new mongoose.Schema({
 
     auctionEndTime: {
         type: Date,
-        required: function () { return this.isAuctioned; }, 
+        required: function () { return this.isAuctioned; },
     },
 
     NftStatus: {
@@ -63,13 +65,19 @@ const NftSchema = new mongoose.Schema({
         ref: 'Log',
     },
 
-    collectionName: { // Нове поле для зберігання назви колекції
+    collectionId: { // ID колекції для пошуку
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Collection', // Пов'язуємо з колекцією
+    },
+
+    collectionName: { // Назва колекції
         type: String,
     },
+
     createdAt: {
         type: Date,
         default: Date.now,
-      },
+    },
 
 }, {
     timestamps: true,

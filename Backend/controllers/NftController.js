@@ -4,7 +4,6 @@ import { express, jwt,validationResult, connectDB,
 from '../imports/index.js';
 import LogModel from '../models/log.js'
 
-
 export const AddNewNft = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -15,9 +14,9 @@ export const AddNewNft = async (req, res) => {
         });
     }
     try {
-        const { title, description, creatorId, imageUrl, price, auctionStatus,
-        auctionEndTime, userId, isAuctioned, NftStatus, blockchainAddress } = req.body;
+        const { title, description, imageUrl, price, isAuctioned, blockchainAddress, collectionId, collectionName, auctionEndTime } = req.body;
 
+        // Перевірка на обов'язкові поля для "isAuctioned"
         if (isAuctioned && !auctionEndTime) {
             return res.status(400).json({
                 success: false,
@@ -29,26 +28,26 @@ export const AddNewNft = async (req, res) => {
         const nftData = {
             title,
             description,
-            creatorId,
             imageUrl,
-            price,
-            auctionStatus,
+            price: price || 0, // Якщо ціна не передана, встановимо її як 0
             isAuctioned,
-            auctionEndTime,
-            owner: req.userId || creatorId,
             blockchainAddress,
-            NftStatus,
+            collectionName,
+            collectionId,
+            owner: req.userId, // Власник отримує userId
+            creatorId: req.userId, // Тепер creatorId дорівнює owner
+            NftStatus: req.body.NftStatus || 'created',
+            auctionEndTime: isAuctioned ? auctionEndTime : undefined,
         };
 
         const newNft = new NftModel(nftData);
-
         let nft = await newNft.save();
 
-        // Створення нового запису в Log після збереження NFT
+        // Логування операції, додаємо operationPrice, навіть якщо це 0
         const logData = {
             nftID: nft._id,
             transactionDate: new Date(),
-            operationPrice: price, // Ви можете додавати інші дані за необхідності
+            operationPrice: price || 0, // Якщо ціна не передана, встановимо її як 0
         };
 
         const newLog = new LogModel(logData);
@@ -71,6 +70,7 @@ export const AddNewNft = async (req, res) => {
         });
     }
 };
+
 
 export const GetNftInfo = async (req,res) => {
     try {
