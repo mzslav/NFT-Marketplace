@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const NftSchema = new mongoose.Schema({
-    
     title: {
         type: String,
         required: true,
@@ -17,10 +16,10 @@ const NftSchema = new mongoose.Schema({
         ref: 'User',  
         immutable: true 
     },
+
     owner: {  
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',  
- 
     },
 
     imageUrl: {
@@ -30,6 +29,9 @@ const NftSchema = new mongoose.Schema({
 
     price: {
         type: Number,
+        required: function () {
+            return this.NftStatus === 'on sale' || this.NftStatus === 'on auction';
+        },
     },
 
     isAuctioned: {  
@@ -45,28 +47,41 @@ const NftSchema = new mongoose.Schema({
 
     auctionEndTime: {
         type: Date,
-        required: function () { return this.isAuctioned; }, 
+        required: function () { return this.isAuctioned; },
     },
 
     NftStatus: {
         type: String,
-        enum: ['on sale', 'sold', 'on auction','created'],  
+        enum: ['on sale', 'sold', 'on auction', 'created'],  
         default: 'created',
     },
+
     blockchainAddress: {
         type: String,
     },
+
     transactionHistory: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Log',
     },
-    
-},
 
-{
-    timestamp: true,
-},
-);
+    collectionId: { // ID колекції для пошуку
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Collection', // Пов'язуємо з колекцією
+    },
+
+    collectionName: { // Назва колекції
+        type: String,
+    },
+
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+
+}, {
+    timestamps: true,
+});
 
 NftSchema.pre('save', function(next) {
     if (!this.owner) {
@@ -74,6 +89,5 @@ NftSchema.pre('save', function(next) {
     }
     next();
 });
-
 
 export default mongoose.model('Nft', NftSchema);

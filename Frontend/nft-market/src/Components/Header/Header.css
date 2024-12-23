@@ -163,4 +163,23 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 4px;
   }
   
-  
+  .meta-address {
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    background: none; /* Зникає фон */
+    border: none; /* Видаляється обводка */
+    border-radius: 0;
+    width: 110px; /* Обмеження ширини */
+    height: 34px; /* Висота для вирівнювання з іншими елементами */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 155px; /* Та ж позиція, що у кнопки */
+    overflow: hidden; /* Для обмеження тексту */
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Відображає ... */
+}

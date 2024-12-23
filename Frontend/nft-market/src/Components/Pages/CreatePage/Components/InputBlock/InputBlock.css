@@ -29,7 +29,7 @@
 /* Стилі для нового блоку */
 .upload-block {
     width: 452px;
-    height: 178px;
+    
     margin-left: 30px; /* Відступ від лівого краю, як у заголовка */
     margin-top: 70px; /* Відступ вниз від заголовка */
     position: relative; /* Додаємо для правильної роботи з абсолютним позиціонуванням кнопки */
@@ -42,8 +42,8 @@
     font-size: 14px;
     text-align: left;
     color: #fff;
-    margin-bottom: -15px; /* Відступ між текстом і прямокутником */
-   
+    margin-bottom: 0px; /* Відступ між текстом і прямокутником */
+    font-family: 'Arvo', serif;
     margin-top: 55px; /* Відступ від верхнього краю прямокутника */
 }
 
@@ -645,6 +645,10 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     transition: all 0.3s ease;
     box-sizing: border-box; /* Щоб padding не змінював загальні розміри */
     font-family: 'Arvo', serif;
+    white-space: nowrap;
+    overflow: hidden;  
+    text-overflow: ellipsis; 
+    text-align: left;
 }
 
 .collection-box.add-collection {
@@ -753,7 +757,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 
 .create-btn {
     position: relative;
-    top: 20px;
+    top: 50px;
     bottom: 20px; /* Відстань віднизу */
     width: 300px;
     height: 60px;
@@ -770,7 +774,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Arvo', serif;
-    
+    margin-left: 30px;
     
 }
 

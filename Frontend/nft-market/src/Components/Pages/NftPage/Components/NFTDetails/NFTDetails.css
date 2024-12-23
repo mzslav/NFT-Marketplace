@@ -6,6 +6,7 @@
     align-items: center;
     margin: 0 auto;
     max-width: 1015px;
+    margin-left: 100px;
   }
   
   /* Верхня частина */
@@ -56,8 +57,15 @@
   
   .creator,
   .owner {
-    width: 180px;
+    display: block;           /* Переконайтеся, що це звичайний блок */
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;  
+    width: 200px;             /* Чітко задайте ширину */
+    max-width: 100%;          /* Або адаптивну ширину */
+    text-align: left;
   }
+  
   
   .label {
     font-family: 'Arvo', serif;

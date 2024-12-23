@@ -1,8 +1,8 @@
 export const blockchainData = [
     {
-      userAddress: "0xUser1", // Адрес користувача
+      userAddress: "0xAB16317Ed40CfC600db0e3271c91f566Bb2E7b2D", // Адрес користувача
       username: "mzslav", // Логін користувача
-      totalBalance: 0.052, // Баланс користувача
+      
       purchases: 2, // Кількість покупок
       sales: 0, // Кількість продажів
       totalNFTs: 2, // Загальна кількість NFT
