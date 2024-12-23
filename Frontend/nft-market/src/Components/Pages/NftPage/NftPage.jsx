@@ -62,6 +62,7 @@ const NFTPage = () => {
         isAuction={nft.NftStatus === "on auction"}
         onBuyClick={handleBuyClick}
         collectionName={nft.collectionName || "Unknown"}
+        collectionId={nft.collectionId} // Передаємо collectionId
       />
 
       <NFTSlider
@@ -71,5 +72,6 @@ const NFTPage = () => {
     </div>
   );
 };
+
 
 export default NFTPage;

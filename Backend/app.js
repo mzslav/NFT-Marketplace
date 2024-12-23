@@ -15,8 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/create', checkToken,authenticateJWT, NftValidation,NftController.AddNewNft);
-
 app.get('/marketplace',NftController.GetAllNFT);
+app.get('/collections',checkToken,NftController.GetAllCollection);
+app.get('/collections/:collectionId',NftController.GetCollectionDetails);
 
 app.get('/nft/:id',NftController.GetNftInfo);
 
