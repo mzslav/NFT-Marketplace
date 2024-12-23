@@ -57,14 +57,20 @@
 .username {
     position: absolute;
     top: 230px;
-    width: 100%;
+    width: 95%;
     text-align: center;
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 36px;
     color: #fff;
     margin-bottom: 45px;
-    margin-left: -20px;
+   
+    flex-shrink: 0;          /* Забороняє розтягування блоку */
+    flex-shrink: 0;          /* Забороняє розтягування блоку */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
 }
 
 .field-group {

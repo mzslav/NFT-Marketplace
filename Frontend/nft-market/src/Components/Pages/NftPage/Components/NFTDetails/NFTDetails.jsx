@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom"; // Імпортуємо Link для маршрутизації
 import "./NFTDetails.css";
 
 const NFTDetails = ({
@@ -12,16 +13,22 @@ const NFTDetails = ({
   onBuyClick,
   collectionName,
   onPriceChange,
+  collectionId, // додаємо collectionId як пропс
 }) => {
   return (
     <div className="nft-details-container">
       {/* Верхня частина */}
       <div className="nft-details-upper">
-        <div className="nft-image-wrapper"> {/* Новий контейнер для фото */}
+        <div className="nft-image-wrapper">
           <img src={imageUrl} alt={title} className="nft-image" />
         </div>
         <div className="nft-info">
-          <p className="collection-name">{collectionName}</p>
+          {/* Замінимо collectionName на Link */}
+          <p className="collection-name">
+            <Link to={`/collections/${collectionId}`} style={{ textDecoration: "none", color: "inherit" }}>
+              {collectionName}
+            </Link>
+          </p>
           <h1 className="nft-title">{title}</h1>
           <div className="meta-info">
             <div className="creator">
@@ -79,8 +86,8 @@ NFTDetails.propTypes = {
   isAuction: PropTypes.bool,
   onBuyClick: PropTypes.func.isRequired,
   collectionName: PropTypes.string.isRequired,
-  collectionNFTs: PropTypes.array.isRequired,
-  onPriceChange: PropTypes.func.isRequired,  
+  collectionId: PropTypes.string.isRequired, // додаємо пропс для collectionId
+  onPriceChange: PropTypes.func.isRequired,
 };
 
 export default NFTDetails;
