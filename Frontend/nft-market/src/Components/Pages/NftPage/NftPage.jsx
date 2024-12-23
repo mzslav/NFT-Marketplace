@@ -8,25 +8,39 @@ import Header from "../../Header/Header";
 const NFTPage = () => {
   const { id } = useParams(); // Отримуємо ID з URL
   const [nft, setNft] = useState(null); // Стейт для NFT-даних
+  const [collectionNFTs, setCollectionNFTs] = useState([]); // Стейт для NFT у колекції
   const [loading, setLoading] = useState(true); // Стейт для завантаження
   const [error, setError] = useState(null); // Стейт для помилок
 
-  // Функція для отримання даних про NFT
   useEffect(() => {
-    const fetchNft = async () => {
+    const fetchNftAndCollection = async () => {
       try {
-        const response = await axios.get(`http://localhost:3500/nft/${id}`); // Запит на сервер
-        if (response.data.success) {
-          setNft(response.data.data); // Зберігаємо дані NFT у стейт
+        const nftResponse = await axios.get(`http://localhost:3500/nft/${id}`); // Запит на NFT
+        console.log("NFT Response:", nftResponse.data); // Перевіряємо, що приходить
+        if (nftResponse.data.success) {
+          const nftData = nftResponse.data.data;
+          setNft(nftData); // Зберігаємо дані NFT у стейт
+
+          // Завантажуємо NFT з колекції
+          const collectionResponse = await axios.get(
+            `http://localhost:3500/collections/${nftData.collectionId}`
+          );
+          console.log("Collection Response:", collectionResponse.data); // Перевіряємо колекцію
+          if (collectionResponse.data) {
+            setCollectionNFTs(collectionResponse.data.nfts);
+          }
         } else {
           setError("NFT not found");
         }
+      // eslint-disable-next-line no-unused-vars
+      } catch (err) {
+        setError("An error occurred while fetching data.");
       } finally {
         setLoading(false); // Завантаження завершено
       }
     };
 
-    fetchNft();
+    fetchNftAndCollection();
   }, [id]);
 
   if (loading) {
@@ -37,7 +51,6 @@ const NFTPage = () => {
     return <p style={{ textAlign: "center", color: "red" }}>{error}</p>;
   }
 
-  // Якщо дані отримано, відображаємо сторінку
   const handleBuyClick = () => {
     alert(
       `You have ${
@@ -46,9 +59,6 @@ const NFTPage = () => {
     );
   };
 
-  // Фільтруємо колекцію для слайдера
-  const filteredCollectionNFTs = []; // Зробіть окремий запит для колекції, якщо потрібно
-
   return (
     <div className="nft-page">
       <Header />
@@ -56,22 +66,21 @@ const NFTPage = () => {
         title={nft.title}
         price={`${nft.price} ETH`}
         imageUrl={nft.imageUrl}
-        owner={nft.owner ? nft.owner.username : "Unknown"} // Перевірка на null
-        creator={nft.creatorId ? nft.creatorId.username : "Unknown"} // Перевірка на null
+        owner={nft.owner ? nft.owner.username : "Unknown"}
+        creator={nft.creatorId ? nft.creatorId.username : "Unknown"}
         description={nft.description}
         isAuction={nft.NftStatus === "on auction"}
         onBuyClick={handleBuyClick}
         collectionName={nft.collectionName || "Unknown"}
-        collectionId={nft.collectionId} // Передаємо collectionId
+        collectionId={nft.collectionId}
       />
 
       <NFTSlider
-        collectionNFTs={filteredCollectionNFTs}
-        currentNFTCollection={nft.collectionName || "Unknown"}
+        collectionNFTs={collectionNFTs}
+        currentCollectionId={nft.collectionId} // Передаємо ID колекції
       />
     </div>
   );
 };
-
 
 export default NFTPage;

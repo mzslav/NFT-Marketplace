@@ -1,0 +1,80 @@
+/* Загальна обгортка для слайдера */
+.slider-section {
+  margin-top: 80px;
+  margin-bottom: 100px;
+  margin-left: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Заголовок слайдера */
+.slider-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #efe7e7;
+  margin-bottom: 20px;
+  text-align: center; /* Вирівнюємо заголовок по центру */
+}
+
+/* Обгортка для самого слайдера */
+.slider-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Слайдер */
+.slider-main {
+  width: 100%;
+  max-width: 670px;  /* Максимальна ширина слайдера */
+  height: 500px;  /* Висота слайдера, щоб помістити зображення та назву */
+  border-radius: 40px;
+  background: rgba(36, 36, 36, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Стиль для кожного слайду */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Розташовуємо зображення і назву вертикально */
+}
+
+/* Стиль для зображення */
+.slider-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+/* Стиль для назви */
+.slider-item-title {
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  margin-top: 10px;
+}
+
+/* Стиль для посилання, щоб не було підкреслення */
+.slider-link {
+    text-decoration: none; /* Забираємо підкреслення */
+    color: inherit; /* Зберігаємо колір тексту зображення та назви */
+  }
+  
+  .slider-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 30px;
+    transition: transform 0.3s ease; /* Додаємо анімацію для масштабу */
+  }
+  
+  .slider-image:hover {
+    transform: scale(1.05); /* Збільшуємо зображення при наведенні */
+  }
+  
