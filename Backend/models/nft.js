@@ -65,12 +65,12 @@ const NftSchema = new mongoose.Schema({
         ref: 'Log',
     },
 
-    collectionId: { // ID колекції для пошуку
+    collectionId: { 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Collection', // Пов'язуємо з колекцією
+        ref: 'Collection', 
     },
 
-    collectionName: { // Назва колекції
+    collectionName: {
         type: String,
     },
 

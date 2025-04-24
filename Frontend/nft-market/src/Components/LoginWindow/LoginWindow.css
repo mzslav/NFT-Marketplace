@@ -1,4 +1,3 @@
-/* Задній фон */
 .login-window-overlay {
   position: fixed;
   top: 0;
@@ -12,7 +11,7 @@
   z-index: 1000;
 }
 
-/* Вікно */
+
 .login-window {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 25px;
@@ -26,7 +25,7 @@
   position: relative;
 }
 
-/* Закрити */
+
 .close-btn {
   position: absolute;
   top: 10px;
@@ -38,12 +37,12 @@
   color: white;
 }
 
-/* Статичний текст */
+
 .white-text {
   color: white;
 }
 
-/* Група форм */
+
 .form-group {
   margin-bottom: 20px;
   text-align: left;
@@ -65,7 +64,7 @@
   background: rgba(255, 255, 255, 0.8);
 }
 
-/* Поле для адреси */
+
 .user-address-label {
   display: block;
   font-weight: bold;
@@ -83,7 +82,7 @@
   font-size: 14px;
 }
 
-/* Кнопка */
+
 .submit-btn {
   background-image: linear-gradient(to right, #f331d3 0%, #cf33ee 51%, #ce0be7 100%);
   font-weight: 700;
@@ -98,8 +97,8 @@
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   cursor: pointer;
-  width: calc(100% - 40px); /* Зберігаємо ширину */
-  height: auto; /* Адаптивна висота */
+  width: calc(100% - 40px);
+  height: auto;
   margin-top: 10px;
   margin-bottom: 10px;
 }

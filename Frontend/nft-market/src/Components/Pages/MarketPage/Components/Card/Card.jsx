@@ -1,12 +1,12 @@
-import PropTypes from "prop-types"; // Імпортуємо PropTypes для валідації пропсів
-import { useNavigate } from "react-router-dom"; // Для навігації
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom"; 
 import "./Card.css";
 
 const Card = ({ title, owner, releaseDate, price, imageUrl, id }) => {
   const navigate = useNavigate();
 
 const handleMintClick = () => {
-  navigate(`/nft/${id}`); // Перевірте, що передаєте правильний id
+  navigate(`/nft/${id}`); 
 };
 
 
@@ -50,7 +50,7 @@ Card.propTypes = {
   releaseDate: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired, // Додано поле id для використання в URL
+  id: PropTypes.number.isRequired,
 };
 
 export default Card;

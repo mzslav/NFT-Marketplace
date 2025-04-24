@@ -1,789 +1,723 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Afacan&display=swap");
 
 .page-content {
-  
-    margin-left: 250px; /* Відступ від лівого краю */
-    margin-right: left; /* Вирівнювання для центрування */
-    max-width: calc(100% - 250px); /* Максимальна ширина з урахуванням відступу */
-    box-sizing: border-box; /* Правильний підрахунок відступів */
-    margin-top: 60px;
-    margin-bottom: 260px;
+  margin-left: 250px;
+  margin-right: left;
+  max-width: calc(100% - 250px);
+  box-sizing: border-box;
+  margin-top: 60px;
+  margin-bottom: 260px;
 }
-
-
 
 .title-i {
-    text-align: left;
-    font-family: 'Arvo', serif;
-    font-weight: 700;
-    font-size: 64px;
-    color: #fff;
-    line-height: 1.2;
-    margin-left: 30px; /* Локальне зміщення тексту */
-    padding-top: 30px;
+  text-align: left;
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: #fff;
+  line-height: 1.2;
+  margin-left: 30px;
+  padding-top: 30px;
 }
 
-
-
-
-/* Стилі для нового блоку */
 .upload-block {
-    width: 452px;
-    
-    margin-left: 30px; /* Відступ від лівого краю, як у заголовка */
-    margin-top: 70px; /* Відступ вниз від заголовка */
-    position: relative; /* Додаємо для правильної роботи з абсолютним позиціонуванням кнопки */
+  width: 452px;
+
+  margin-left: 30px;
+  margin-top: 70px;
+  position: relative;
 }
 
-/* Текст заголовка "Upload File" */
 .upload-text {
-    font-family: var(--third-family);
-    font-weight: 700;
-    font-size: 14px;
-    text-align: left;
-    color: #fff;
-    margin-bottom: 0px; /* Відступ між текстом і прямокутником */
-    font-family: 'Arvo', serif;
-    margin-top: 55px; /* Відступ від верхнього краю прямокутника */
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+  color: #fff;
+  margin-bottom: 0px;
+  font-family: "Arvo", serif;
+  margin-top: 55px;
 }
 
-/* Прямокутник для вибору файлів */
 .upload-box {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    
-    border: 1px dashed #a09090;
-    width: 472px;
-    height: 152px;
-    display: flex;
-    justify-content: center; /* Центрування контенту всередині */
-    align-items: center; /* Центрування контенту по вертикалі */
-    position: relative; /* Додаємо для кнопки з абсолютним позиціонуванням */
-    margin-top: 15px; /* Відступ для коректного розташування кнопки і тексту */
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  border: 1px dashed #a09090;
+  width: 472px;
+  height: 152px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 15px;
 }
 
-/* Контейнер для кнопки, нова назва */
 .upload-button-container {
-    position: absolute;
-    top: 88px; /* Відступ від верхнього краю прямокутника */
-    left: 50%; /* Вирівнювання по горизонталі */
-    transform: translateX(-50%); /* Центрування кнопки */
-    display: inline-block;
-    padding: 2px; /* Ширина градієнта */
-    background: linear-gradient(
-        to bottom right,
-        rgba(97, 12, 135, 1) 0%, 
-        rgba(183, 4, 184, 1) 30%, 
-        rgba(213, 47, 203, 1) 60%, 
-        rgba(165, 156, 219, 1) 100%
-    ); /* Ваш фіолетовий градієнт */
-    border-radius: 12px;
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  padding: 2px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(97, 12, 135, 1) 0%,
+    rgba(183, 4, 184, 1) 30%,
+    rgba(213, 47, 203, 1) 60%,
+    rgba(165, 156, 219, 1) 100%
+  );
+  border-radius: 12px;
 }
 
-/* Стилі для кнопки */
 .upload-button {
-    width: 120px;
-    height: 34px;
-    border-radius: 10px;
-    background: #110321;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-family: var(--third-family); /* Застосування шрифту */
-    font-weight: 700; /* Жирний шрифт */
-    font-size: 14px; /* Розмір шрифту */
-    text-align: center; /* Центрування тексту */
+  width: 120px;
+  height: 34px;
+  border-radius: 10px;
+  background: #110321;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
 }
 
 .upload-button:hover {
-    background: #1a052b; /* Ефект при наведенні */
-    box-shadow: 20px 0 150px #ff00aa, -20px 0 150px #a83dff;
+  background: #1a052b;
+  box-shadow: 20px 0 150px #ff00aa, -20px 0 150px #a83dff;
 }
 
-
-/* Текст з розширеннями файлів */
 .file-types {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.63);
-    text-align: center;
-    margin-top: -90px; 
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.63);
+  text-align: center;
+  margin-top: -90px;
 }
 
 .file-name {
-    font-family: var(--third-family);
-    font-weight: 700;
-    font-size: 14px;
-    color: #fff;
-    margin-top: 180px;
-    text-align: center;
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  margin-top: 180px;
+  text-align: center;
 }
 
-
-
-/* Обертка для інпута з градієнтною обводкою */
 .input-border {
-    position: relative;
-    display: inline-block;
-    padding: 2px; /* Ширина градієнта */
-    border-radius: 12px;
-    background: transparent; /* Прозорий фон, щоб обводка виглядала окремо */
-    
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+  border-radius: 12px;
+  background: transparent;
 }
 
-/* Стилі для інпута */
 .nft-title-input {
-    width: 452px; /* Ширина інпута */
-    height: 38px; /* Висота інпута */
-    border-radius: 10px;
-    border: none; /* Прибираємо стандартний бордюр */
-    background: #110321; /* Темний фон текстового поля */
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    z-index: 1; /* Щоб інпут був вище за обводку */
-    position: relative;
-    font-weight: bold;
+  width: 452px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  background: #110321;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 1;
+  position: relative;
+  font-weight: bold;
 }
 
-/* Обводка з градієнтом */
 .input-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px; /* Ширина обводки */
-    background: linear-gradient(
-        to bottom right,
-        rgba(97, 12, 135, 1) 0%, 
-        rgba(183, 4, 184, 1) 30%, 
-        rgba(213, 47, 203, 1) 60%, 
-        rgba(165, 156, 219, 1) 100%
-    ); /* Градієнт для обводки */
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    z-index: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(97, 12, 135, 1) 0%,
+    rgba(183, 4, 184, 1) 30%,
+    rgba(213, 47, 203, 1) 60%,
+    rgba(165, 156, 219, 1) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 0;
 }
 .title-block {
-      text-align: left; /* Вирівнює контент по центру */
-      margin-left: 30px;
-      margin-top: 40px;
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 40px;
 }
 
 .title-text {
-    color: #fff;
+  color: #fff;
 }
 
-
-/* Обертка для інпута "Description" з градієнтною обводкою */
 .description-block {
-    text-align: left;
-    margin-left: 30px;
-    margin-top: 40px;
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 40px;
 }
 
 .nft-description-input {
-    width: 452px; /* Ширина інпута */
-    height: 38px; /* Висота інпута */
-    border-radius: 10px;
-    border: none; /* Прибираємо стандартний бордюр */
-    background: #110321; /* Темний фон текстового поля */
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    z-index: 1; /* Щоб інпут був вище за обводку */
-    position: relative;
-    font-weight: bold;
+  width: 452px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  background: #110321;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 1;
+  position: relative;
+  font-weight: bold;
 }
 
-/* Обводка з градієнтом */
 .input-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px; /* Ширина обводки */
-    background: linear-gradient(
-        to bottom right,
-        rgba(97, 12, 135, 1) 0%, 
-        rgba(183, 4, 184, 1) 30%, 
-        rgba(213, 47, 203, 1) 60%, 
-        rgba(165, 156, 219, 1) 100%
-    ); /* Градієнт для обводки */
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    z-index: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(97, 12, 135, 1) 0%,
+    rgba(183, 4, 184, 1) 30%,
+    rgba(213, 47, 203, 1) 60%,
+    rgba(165, 156, 219, 1) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 0;
 }
 
 .title-text {
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-
-/* Обертка для вибору категорії з градієнтною обводкою */
 .category-block {
-    margin-left: 30px;
-    margin-top: 40px;
+  margin-left: 30px;
+  margin-top: 40px;
 }
 
-/* Стилі для селекту */
 .nft-category-select {
-    width: 462px; /* Ширина інпута */
-    height: 38px; /* Висота інпута */
-    border-radius: 10px;
-    border: none; /* Прибираємо стандартний бордюр */
-    background: #110321; /* Темний фон текстового поля */
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    padding-left: 10px;
-    padding-right: 30px;
-    z-index: 1; /* Щоб інпут був вище за обводку */
-    position: relative;
-    font-weight: bold;
-    margin-right: 10px;
-    
-    
+  width: 462px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  background: #110321;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 30px;
+  z-index: 1;
+  position: relative;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
-/* Обводка з градієнтом */
 .input-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px; /* Ширина обводки */
-    background: linear-gradient(
-        to bottom right,
-        rgba(97, 12, 135, 1) 0%, 
-        rgba(183, 4, 184, 1) 30%, 
-        rgba(213, 47, 203, 1) 60%, 
-        rgba(165, 156, 219, 1) 100%
-    ); /* Градієнт для обводки */
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    z-index: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(97, 12, 135, 1) 0%,
+    rgba(183, 4, 184, 1) 30%,
+    rgba(213, 47, 203, 1) 60%,
+    rgba(165, 156, 219, 1) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 0;
 }
 
 .title-text {
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 0px;
-    font-family: 'Arvo', serif;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  font-family: "Arvo", serif;
 }
-
-
-
-
 
 .auction-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 326px;
-    height: 42px;
-    background: transparent; /* Прозорий фон контейнера */
-    margin-top: 40px;
-    margin-left: 30px;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 326px;
+  height: 42px;
+  background: transparent;
+  margin-top: 40px;
+  margin-left: 30px;
 }
 
 .auction-texts {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Arvo', serif;
+  display: flex;
+  flex-direction: column;
+  font-family: "Arvo", serif;
 }
 
 .auction-title {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 16px;
-    color: #fff;
-    margin: 0;
-    font-family: 'Arvo', serif;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  font-family: "Arvo", serif;
 }
 
 .auction-subtitle {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-    font-family: 'Arvo', serif;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-family: "Arvo", serif;
 }
 
-/* Стиль для switch */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 54px;
-    height: 28px;
-    
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 28px;
 }
 
-/* Сховати стандартний чекбокс */
 .switch input {
-    display: none;
+  display: none;
 }
-
-
 
 .price-block {
-    margin-left: 30px;
-    padding-top: 40px;
+  margin-left: 30px;
+  padding-top: 40px;
 }
 
 .auction-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 380px;
-    height: 42px;
-    background: transparent; /* Прозорий фон контейнера */
-    margin-top: 40px;
-    margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 380px;
+  height: 42px;
+  background: transparent;
+  margin-top: 40px;
+  margin-left: 30px;
 }
 
 .auction-texts {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .auction-title {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 16px;
-    color: #fff;
-    margin: 0;
-    font-family: 'Arvo', serif;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  font-family: "Arvo", serif;
 }
 
 .auction-subtitle {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-    font-family: 'Arvo', serif;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-family: "Arvo", serif;
 }
 
-/* Стиль для switch */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 54px;
-    height: 28px;
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 28px;
 }
 
-/* Сховати стандартний чекбокс */
 .switch input {
-    display: none;
+  display: none;
 }
 
-/* Слайдер */
 .slider-i {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #bd8dd391;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bd8dd391;
+  transition: 0.4s;
 }
 
-/* Стиль для круглого слайдера */
 .slider-i:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
 }
 
 input:checked + .slider-i {
-    background-color: #d531eb;
+  background-color: #d531eb;
 }
 
 input:focus + .slider-i {
-    box-shadow: 0 0 1px #d311d3;
+  box-shadow: 0 0 1px #d311d3;
 }
 
 input:checked + .slider-i:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
 }
 
-/* Округлений слайдер */
 .slider-i.round {
-    border-radius: 34px;
+  border-radius: 34px;
 }
 
 .slider-i.round:before {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
-
 .marketplace-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 380px; /* Залишимо ширину такою ж */
-    height: 42px;
-    background: transparent; /* Прозорий фон */
-    margin-top: 40px;
-    margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 380px;
+  height: 42px;
+  background: transparent;
+  margin-top: 40px;
+  margin-left: 30px;
 }
 
 .marketplace-texts {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Arvo', serif;
+  display: flex;
+  flex-direction: column;
+  font-family: "Arvo", serif;
 }
 
 .marketplace-title {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 16px;
-    color: #fff;
-    margin: 0;
-    font-family: 'Arvo', serif;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  font-family: "Arvo", serif;
 }
 
 .marketplace-subtitle {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-    font-family: 'Arvo', serif;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-family: "Arvo", serif;
 }
 
-/* Стиль для switch */
 .marketplace-block .switch {
-    position: relative;
-    display: inline-block;
-    width: 54px;
-    height: 28px;
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 28px;
 }
 
-/* Сховати стандартний чекбокс */
 .marketplace-block .switch input {
-    display: none;
+  display: none;
 }
 
-/* Слайдер */
 .marketplace-block .slider-i {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #bd8dd391;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bd8dd391;
+  transition: 0.4s;
 }
 
-/* Стиль для круглого слайдера */
 .marketplace-block .slider-i:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
 }
 
 .marketplace-block input:checked + .slider-i {
-    background-color: #31d3eb; /* Інший колір при увімкненні */
+  background-color: #31d3eb;
 }
 
 .marketplace-block input:focus + .slider-i {
-    box-shadow: 0 0 1px #11d3d3;
+  box-shadow: 0 0 1px #11d3d3;
 }
 
 .marketplace-block input:checked + .slider-i:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
 }
 
-/* Округлений слайдер */
 .marketplace-block .slider-i.round {
-    border-radius: 34px;
+  border-radius: 34px;
 }
 
 .marketplace-block .slider-i.round:before {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
-/* Стилі для інпута ціни */
 .nft-price-input {
-    width: 452px;
-    height: 38px;
-    border-radius: 10px;
-    border: none;
-    background: #110321;
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-weight: bold;
+  width: 452px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  background: #110321;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
 }
 
-/* Обертка для інпута */
 .input-border {
-    position: relative;
-    display: inline-block;
-    padding: 2px; /* Ширина градієнта */
-    border-radius: 12px;
-    background: transparent;
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+  border-radius: 12px;
+  background: transparent;
 }
 
-
-
-/* Стилі для блоку вибору дати закінчення аукціону */
 .auction-end-time-block {
-    margin-left: 30px;
-    margin-top: 50px;
-    display: none; /* За замовчуванням приховано */
+  margin-left: 30px;
+  margin-top: 50px;
+  display: none;
 }
 
-/* Клас .active додається, коли аукціон увімкнений */
 .auction-end-time-block.active {
-    display: block;
+  display: block;
 }
 
-/* Стилі для інпута вибору дати */
 .nft-auction-end-time-input {
-    width: 432px; /* Ширина інпута */
-    height: 38px; /* Висота інпута */
-    border-radius: 10px;
-    border: none; /* Прибираємо стандартний бордюр */
-    background: #110321; /* Темний фон текстового поля */
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    padding-left: 10px;
-    padding-right: 30px; /* Відступ для іконки календаря */
-    position: relative;
-    font-weight: bold;
-    
+  width: 432px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  background: #110321;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 30px;
+  position: relative;
+  font-weight: bold;
 }
 
-/* Стилі для обводки інпута */
 .input-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px; /* Ширина обводки */
-    background: linear-gradient(
-        to bottom right,
-        rgba(97, 12, 135, 1) 0%, 
-        rgba(183, 4, 184, 1) 30%, 
-        rgba(213, 47, 203, 1) 60%, 
-        rgba(165, 156, 219, 1) 100%
-    ); /* Градієнт для обводки */
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    z-index: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(97, 12, 135, 1) 0%,
+    rgba(183, 4, 184, 1) 30%,
+    rgba(213, 47, 203, 1) 60%,
+    rgba(165, 156, 219, 1) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 0;
 }
 
-/* Білий колір для іконки календаря */
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-    filter: invert(100%); /* Змінюємо колір іконки на білий */
+  filter: invert(100%);
 }
 
-
-
-
-/* Загальний контейнер для колекцій */
 .collection-block {
-    margin-top: 30px;
-    margin-left: 30px;
-
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
 .collection-container {
-    display: flex;
-    flex-wrap: wrap; /* Дозволяємо елементам переходити на наступний рядок */
-    gap: 40px; /* Відстань між елементами */
-    justify-content: space-between; /* Забезпечує рівномірне розподілення елементів */
-    width: 320px; /* Ширина контейнера */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  width: 320px;
 }
 
-/* Стилі для кожного квадрата */
 .collection-box {
-    border-radius: 10px;
-    width: 140px; /* Ширина кожного елемента */
-    height: 140px; /* Висота кожного елемента */
-    background: rgba(201, 195, 195, 0.1); /* Фон за замовчуванням */
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    transition: all 0.3s ease;
-    box-sizing: border-box; /* Щоб padding не змінював загальні розміри */
-    font-family: 'Arvo', serif;
-    white-space: nowrap;
-    overflow: hidden;  
-    text-overflow: ellipsis; 
-    text-align: left;
+  border-radius: 10px;
+  width: 140px;
+  height: 140px;
+  background: rgba(201, 195, 195, 0.1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: "Arvo", serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 }
 
 .collection-box.add-collection {
-    background: #110321; /* Фон для додавання колекції */
-    border: 2px solid #aa27aa; /* Обводка для додавання */
+  background: #110321;
+  border: 2px solid #aa27aa;
 }
 
 .collection-box.selected-collection {
-    background: rgba(201, 195, 195, 0.1);
-    border: 2px solid #663399; /* Та ж обводка для вибраної колекції */
+  background: rgba(201, 195, 195, 0.1);
+  border: 2px solid #663399;
 }
 
 .collection-box:hover {
-    background: rgba(201, 195, 195, 0.2); /* Підсвічування при наведенні */
+  background: rgba(201, 195, 195, 0.2);
 }
 
-/* Коли колекція вибрана, фон стає темнішим */
 .collection-box.selected {
-    background: rgba(201, 195, 195, 0.3);
-    border-color: #663399; /* Тримати фіолетову обводку */
+  background: rgba(201, 195, 195, 0.3);
+  border-color: #663399;
 }
 
 .plus-sign {
-    font-size: 30px;
-    color: #fff;
-    font-weight: bold;
-    font-family: 'Arvo', serif;
+  font-size: 30px;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Arvo", serif;
 }
 
 .collection-name {
-    font-size: 14px;
-    color: #fff;
-    font-family: 'Arvo', serif;
-   
+  font-size: 14px;
+  color: #fff;
+  font-family: "Arvo", serif;
 }
 
-
-.symbol_imput{
-    padding-top: 20px;
+.symbol_imput {
+  padding-top: 20px;
 }
 
 .price-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }
 
 .price-box {
-    width: 434px;
-    background: rgba(5, 0, 0, 0.49);
-    border: 1px solid transparent;
-    background: linear-gradient(45deg, #ff67f7, #8504ac); /* Градієнт обводки */
-    border-radius: 10px;
-    padding: 20px;
-    color: white;
-    font-family: Arial, sans-serif;
-    
+  width: 434px;
+  background: rgba(5, 0, 0, 0.49);
+  border: 1px solid transparent;
+  background: linear-gradient(45deg, #ff67f7, #8504ac);
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.price-header, .price-fee, .receiving-amount {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 10px;
-    font-family: 'Arvo', serif;
+.price-header,
+.price-fee,
+.receiving-amount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-family: "Arvo", serif;
 }
 
-.price-header span, .price-fee span, .receiving-amount span {
-    font-weight: normal;
-    color: white;
+.price-header span,
+.price-fee span,
+.receiving-amount span {
+  font-weight: normal;
+  color: white;
 }
 
 .divider-line {
-    border: 1px solid #fff; /* Біла розділяюча лінія */
-    width: 100%;
-    height: 0;
-    margin-bottom: 10px;
+  border: 1px solid #fff;
+  width: 100%;
+  height: 0;
+  margin-bottom: 10px;
 }
 
 .receiving-amount span {
-    margin-right: 18px; /* Відступ з правого боку */
-    font-weight: bold;
-    font-size: 16px;
+  margin-right: 18px;
+  font-weight: bold;
+  font-size: 16px;
 }
 
-
 .create-btn i {
-    margin-left: 10px;
-    font-size: 20px;
-    
-   
+  margin-left: 10px;
+  font-size: 20px;
 }
 
 .create-btn:hover {
-    background-position: left center;
+  background-position: left center;
 }
 
 .page-content:hover .create-btn {
-    display: block;
-    background-position: right center;
-    color: #fff;
-    text-decoration: none;
+  display: block;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
 .create-btn {
-    position: relative;
-    top: 50px;
-    bottom: 20px; /* Відстань віднизу */
-    width: 300px;
-    height: 60px;
-    background-image: linear-gradient(to right, #f331d3 0%, #cf33ee 51%, #ce0be7 100%);
-    font-weight: 700;
-    font-size: 22px;
-    padding: 5px 30px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Arvo', serif;
-    margin-left: 30px;
-    
+  position: relative;
+  top: 50px;
+  bottom: 20px;
+  width: 300px;
+  height: 60px;
+  background-image: linear-gradient(
+    to right,
+    #f331d3 0%,
+    #cf33ee 51%,
+    #ce0be7 100%
+  );
+  font-weight: 700;
+  font-size: 22px;
+  padding: 5px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Arvo", serif;
+  margin-left: 30px;
 }
 
 .create-btn i {
-    margin-left: 10px;
-    font-size: 20px;
+  margin-left: 10px;
+  font-size: 20px;
 }
 
 .create-btn:hover {
-    background-position: left center;
+  background-position: left center;
 }
-

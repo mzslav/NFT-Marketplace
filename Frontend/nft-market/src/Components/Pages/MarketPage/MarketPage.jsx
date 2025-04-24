@@ -7,8 +7,8 @@ import CardList from './Components/CardList/CardList';
 
 const Marketplace = () => {
     const [sortParams, setSortParams] = useState({
-        category: '', // Початкова категорія
-        sortOrder: 'asc', // Початковий порядок сортування
+        category: '', 
+        sortOrder: 'asc',
     });
 
     const changeSorting = (category, sortOrder) => {

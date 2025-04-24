@@ -9,21 +9,20 @@
 .main-block {
     margin-top: 60px;
     position: relative;
-    height: 700px; /* Висота блоку залишиться незмінною */
-    width: calc(100vw - 17px); /* 17px - стандартна ширина scrollbar */
+    height: 700px; 
+    width: calc(100vw - 17px); 
     display: flex;
-    align-items: center; /* Центрує контент по вертикалі */
-    justify-content: flex-start; /* Контент починається зліва */
+    align-items: center;
+    justify-content: flex-start; 
     
 
 }
 
 .main-block-content {
     position: absolute;
-    top: 100px; /* Відступ від хедера */
-    left: 180px; /* Зміщує контент від лівого краю на 50px */
-    max-width: 100%; /* Контент займає всю ширину */
-    box-sizing: border-box; /* Включає padding у загальний розмір */
+    top: 100px; 
+    left: 180px; 
+    max-width: 100%;
 }
 
 .main-block-title {
@@ -49,7 +48,7 @@
 }
 
 .main-block-subtitle .highlighted {
-    background: linear-gradient(90deg, #be77c7 0%, #352c99 100%); /* Фіолетовий градієнт */
+    background: linear-gradient(90deg, #be77c7 0%, #352c99 100%); 
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -58,12 +57,12 @@
 
 .glass-card {
     position: absolute;
-    top: 100px; /* Відстань від хедера */
-    left: calc(100% - 640px); /* Відстань від правого краю */
+    top: 100px; 
+    left: calc(100% - 640px); 
     width: 440px;
     height: 429px;
     background: linear-gradient(138deg, rgba(36, 36, 36, 0.507) 0%, rgba(138, 138, 138, 0) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонка і прозора біла межа */
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 40px;
     box-sizing: border-box;
     padding: 20px;
@@ -73,7 +72,7 @@
 .glass-card .logo-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Заповнює картку без спотворення */
+    object-fit: cover; 
     border-radius: 30px;
 }
  
@@ -91,19 +90,19 @@
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
-    width: 200px; /* Ширина для відповідності */
-    height: 45px; /* Висота для відповідності */
-    position: absolute; /* Абсолютне позиціювання */
-    top: 266px; /* Позиція для відповідності */
+    width: 200px; 
+    height: 45px; 
+    position: absolute; 
+    top: 266px; 
 }
 
 .main-block-btn i {
-    margin-left: 10px; /* Відстань між текстом і іконкою */
-    font-size: 20px; /* Розмір іконки */
+    margin-left: 10px; 
+    font-size: 20px; 
 }
 
 .main-block-btn:hover {
-    background-position: right center; /* Зміна напрямку градієнту */
+    background-position: right center; 
     color: #fff;
     text-decoration: none;
 }

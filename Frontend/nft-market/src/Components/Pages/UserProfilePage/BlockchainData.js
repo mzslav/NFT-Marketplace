@@ -1,12 +1,12 @@
 export const blockchainData = [
     {
-      userAddress: "0xAB16317Ed40CfC600db0e3271c91f566Bb2E7b2D", // Адрес користувача
-      username: "mzslav", // Логін користувача
+      userAddress: "0xAB16317Ed40CfC600db0e3271c91f566Bb2E7b2D", 
+      username: "mzslav", 
       
-      purchases: 2, // Кількість покупок
-      sales: 0, // Кількість продажів
-      totalNFTs: 2, // Загальна кількість NFT
-      nfts: [ // Масив NFT, якими володіє користувач
+      purchases: 2, 
+      sales: 0,
+      totalNFTs: 2, 
+      nfts: [ 
         {
           id: 444,
           title: "Monkey-Trip1",

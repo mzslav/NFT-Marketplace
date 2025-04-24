@@ -1,6 +1,5 @@
 import './LoginWindow.css';
 
-// eslint-disable-next-line react/prop-types
 const LoginWindow = ({ message, userAddress, onClose }) => {
   return (
     <div className="login-window-overlay">

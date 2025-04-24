@@ -30,12 +30,12 @@ const UserSchema = new mongoose.Schema({
 
     purchases: {
         type: Number,
-        default: 0,  // Кількість покупок
+        default: 0,  
     },
 
     sales: {
         type: Number,
-        default: 0,  // Кількість продажів
+        default: 0,  
     },
 
     profilePicture: String,

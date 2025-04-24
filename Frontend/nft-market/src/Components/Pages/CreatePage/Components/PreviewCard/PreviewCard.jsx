@@ -1,19 +1,19 @@
-import PropTypes from "prop-types"; // Імпортуємо PropTypes для валідації пропсів
+import PropTypes from "prop-types"; 
 import '../../../MarketPage/Components/Card/Card.css'
 import '../PreviewCard/PreviewCard.css'
 
 const PreviewCard = ({ title, price, imageUrl }) => {
-  // Форматуємо поточну дату
+
   const currentDate = new Date();
-  const formattedDate = formatDate(currentDate); // Отримуємо відформатовану дату
+  const formattedDate = formatDate(currentDate); 
 
   return (
     <div className="PreviewCard">
-      <h2 className="preview-title">Preview</h2> {/* Напис Preview над карткою */}
+      <h2 className="preview-title">Preview</h2> 
       <div className="card">
         <div className="card-image-wrapper">
           <img
-            src={imageUrl}  // Використовуємо пропс imageUrl
+            src={imageUrl}  
             alt="NFT"
             className="card-image"
           />
@@ -26,7 +26,7 @@ const PreviewCard = ({ title, price, imageUrl }) => {
           <div className="release-section">
             <p className="release-text">Release</p>
             <div className="card-date">
-              <p>{formattedDate}</p> {/* Виводимо відформатовану дату */}
+              <p>{formattedDate}</p> 
             </div>
           </div>
           <div className="price-section">
@@ -41,7 +41,7 @@ const PreviewCard = ({ title, price, imageUrl }) => {
   );
 };
 
-// Функція для форматування дати у форматі DD/MM/YYYY
+
 const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -52,7 +52,7 @@ const formatDate = (date) => {
 PreviewCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,  // Переконайся, що передаєш правильний URL для зображення
+  imageUrl: PropTypes.string.isRequired,  
 };
 
 export default PreviewCard;
