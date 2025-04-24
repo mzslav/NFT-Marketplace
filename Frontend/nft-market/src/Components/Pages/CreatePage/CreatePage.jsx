@@ -7,23 +7,23 @@ const Create = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Отримуємо JWT токен з localStorage
+
     const token = localStorage.getItem('jwt');
 
     if (!token) {
-      // Якщо токен не знайдений, перенаправити користувача на сторінку логіну
+    
       window.location.href = '/marketplace';
       return;
     }
 
-    // Декодування або отримання адреси з токена (приклад, залежить від вашої логіки бекенду)
+
     try {
-      const payload = JSON.parse(atob(token.split('.')[1])); // Декодуємо payload з токена
-      setUserAddress(payload.metaMaskAddress); // Припускаємо, що адреса знаходиться тут
+      const payload = JSON.parse(atob(token.split('.')[1])); 
+      setUserAddress(payload.metaMaskAddress); 
     } catch (error) {
       console.error('Error decoding token:', error);
     } finally {
-      setLoading(false); // Завершити завантаження
+      setLoading(false);
     }
   }, []);
 

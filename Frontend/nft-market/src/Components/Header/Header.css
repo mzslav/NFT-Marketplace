@@ -1,55 +1,52 @@
 body {
    
     background-image: url('/picture/backround.jpg');
-    background-size: cover; /* Забезпечує, щоб фон покривав весь екран */
-    background-position: center; /* Центрує фон */
-    background-attachment: fixed; /* Фіксує фон при скролінгу */
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; 
 
   }
 
-/* Кастомізація скролбару */
 body::-webkit-scrollbar {
-  width: 6px; /* Тонкий скролбар */
+  width: 6px; 
 }
 
-/* Фон треку скролбару */
+
 body::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Світлий фон треку скролбару */
+  background-color: #f1f1f1; 
 }
 
-/* Колір повзунка скролбару */
 body::-webkit-scrollbar-thumb {
-  background-color: #888; /* Сірий колір для самого скролбару */
-  border-radius: 10px; /* Закруглені кути */
+  background-color: #888; 
+  border-radius: 10px;
 }
 
-/* Зміна кольору повзунка при наведенні */
+
 body::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Темніший сірий при наведенні */
+  background-color: #555; 
 }
 
   
   
 .header {
-  position: fixed; /* Закріплення хедера вгорі сторінки */
+  position: fixed; 
   top: 0;
   left: 0;
-  width: 100%; /* Хедер на всю ширину */
-  height: 60px; /* Висота хедера */
-  background-color: transparent; /* Прозорий фон */
+  width: 100%; 
+  height: 60px; 
+  background-color: transparent; 
   display: flex;
-  justify-content: space-between; /* Розміщує елементи по краях */
-  align-items: center; /* Центрування елементів по вертикалі */
-  padding: 13px 40px; /* Відступи: зверху 13px, зліва та справа 40px */
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 13px 40px;
   box-sizing: border-box;
-  z-index: 10; /* Хедер завжди над іншими елементами */
-  transition: background-color 0.3s ease; /* Плавний перехід фону */
+  z-index: 10; 
+  transition: background-color 0.3s ease; 
 }
 
-/* Клас, що додається під час прокручування */
 .header.scrolled {
   background-color: rgba(9, 1, 25, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Біла обводка з прозорістю */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
 }
   
   .header-btn {
@@ -65,31 +62,31 @@ body::-webkit-scrollbar-thumb:hover {
     background: #00012a;
     cursor: pointer;
     
-    display: flex; /* Для вирівнювання вмісту */
-    align-items: center; /* Вирівнювання тексту по вертикалі */
-    justify-content: center; /* Центрування тексту по горизонталі */
-    padding: 12px 18px; /* Відступи: зверху/знизу 6px, праворуч 18px */
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    padding: 12px 18px;
     box-sizing: border-box;
-    position: absolute; /* Абсолютне позиціонування кнопки */
-    right: 155px; /* Розміщує кнопку на правій стороні */
+    position: absolute; 
+    right: 155px; 
     
 }
 
 .header-btn::after {
     content: '';
     position: absolute;
-    top: -2px; /* Відступ по верхньому краю */
-    left: -2px; /* Відступ по лівому краю */
-    right: -2px; /* Відступ по правому краю */
-    bottom: -2px; /* Відступ по нижньому краю */
-    border-radius: 10px; /* Радіус обводки */
+    top: -2px; 
+    left: -2px; 
+    right: -2px; 
+    bottom: -2px; 
+    border-radius: 10px;
     background-image: linear-gradient(to bottom right, 
   rgba(97, 12, 135, 1) 0%, 
   rgba(183, 4, 184, 1) 30%, 
   rgba(213, 47, 203, 1) 60%, 
   rgba(165, 156, 219, 1) 100%);
 
-    z-index: -1; /* Псевдоелемент позаду кнопки */
+    z-index: -1; 
 }
 
 .header-btn:hover {
@@ -114,7 +111,7 @@ body::-webkit-scrollbar-thumb:hover {
   }
   
   .create:hover {
-    color: #7ab2f3; /* Зміна кольору при наведенні */
+    color: #7ab2f3; 
   }
   
   .market {
@@ -132,7 +129,7 @@ body::-webkit-scrollbar-thumb:hover {
   }
   
   .market:hover {
-    color: #7ab2f3; /* Зміна кольору при наведенні */
+    color: #7ab2f3;
   }
   
   .about {
@@ -168,18 +165,18 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: 700;
     font-size: 16px;
     color: #fff;
-    background: none; /* Зникає фон */
-    border: none; /* Видаляється обводка */
+    background: none; 
+    border: none;
     border-radius: 0;
-    width: 110px; /* Обмеження ширини */
-    height: 34px; /* Висота для вирівнювання з іншими елементами */
+    width: 110px;
+    height: 34px; 
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 155px; /* Та ж позиція, що у кнопки */
-    overflow: hidden; /* Для обмеження тексту */
+    right: 155px; 
+    overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis; /* Відображає ... */
+    text-overflow: ellipsis; 
 }

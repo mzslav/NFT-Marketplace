@@ -1,8 +1,8 @@
 #root {
-    max-width: none;   /* Позбуваємося обмеження ширини */
-    margin: 0;         /* Вимикаємо відступи */
-    padding: 0;        /* Вимикаємо відступи */
-    text-align: left;  /* Вимикаємо вирівнювання по центру */
+    max-width: none;  
+    margin: 0;        
+    padding: 0;       
+    text-align: left; 
 }
 
 

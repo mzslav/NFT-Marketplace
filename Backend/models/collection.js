@@ -4,12 +4,12 @@ const CollectionSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true, // Назва колекції повинна бути унікальною
+        unique: true,
     },
     creatorId: { 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User', 
-        required: true, // Кожна колекція повинна мати автора
+        required: true, 
     },
     createdAt: {
         type: Date,

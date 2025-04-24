@@ -7,7 +7,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import './NFTSlider.css';
 
 const NFTSlider = ({ collectionNFTs }) => {
-  // Перевірка наявності даних
+
   if (!collectionNFTs || !Array.isArray(collectionNFTs)) {
     return (
       <p style={{ textAlign: "center", color: "red" }}>
@@ -16,7 +16,7 @@ const NFTSlider = ({ collectionNFTs }) => {
     );
   }
 
-  // Якщо дані порожні
+
   if (collectionNFTs.length === 0) {
     return (
       <p style={{ textAlign: "center" }}>
@@ -52,7 +52,7 @@ const NFTSlider = ({ collectionNFTs }) => {
 };
 
 NFTSlider.propTypes = {
-  collectionNFTs: PropTypes.array.isRequired,  // масив для NFT колекції
+  collectionNFTs: PropTypes.array.isRequired, 
 };
 
 export default NFTSlider;

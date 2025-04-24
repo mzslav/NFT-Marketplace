@@ -7,40 +7,38 @@ import axios from 'axios';
 
 const CollectionPage = () => {
   const { collectionId } = useParams();
-  console.log('Collection ID:', collectionId);  // Перевірка ID в консолі
+  console.log('Collection ID:', collectionId);  
   
-  // Стани для даних та помилок
+
   const [collection, setCollection] = useState(null);
   const [error, setError] = useState(null);
 
-  // Виконуємо запит до API для колекції
   useEffect(() => {
     const fetchCollectionData = async () => {
       try {
         const response = await axios.get(`http://localhost:3500/collections/${collectionId}`);
-        setCollection(response.data); // Зберігаємо дані колекції в стейті
-      // eslint-disable-next-line no-unused-vars
+        setCollection(response.data); 
+
       } catch (err) {
         setError('Collection not found!');
       }
     };
 
     fetchCollectionData();
-  }, [collectionId]); // Викликаємо ефект, якщо collectionId змінюється
+  }, [collectionId]); 
 
   if (error) {
-    return <p>{error}</p>; // Якщо є помилка, показуємо повідомлення
+    return <p>{error}</p>; 
   }
 
   if (!collection) {
-    return <p>Loading...</p>; // Показуємо індикатор завантаження
+    return <p>Loading...</p>; 
   }
 
   return (
     <>
       <Header />
       <CollectionInfo collection={collection} />
-      {/* Передаємо масив nfts у компонент слайдера */}
       <NFTSlider collectionNFTs={collection.nfts} />
     </>
   );

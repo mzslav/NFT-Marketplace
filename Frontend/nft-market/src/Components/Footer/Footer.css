@@ -1,5 +1,3 @@
-/* src/Components/Footer.css */
-
 .footer {
     background: rgba(25, 25, 25, 0.8);
     color: white;
@@ -51,7 +49,6 @@
     text-decoration: underline;
   }
   
-  /* Адаптивний дизайн для малих екранів */
   @media (max-width: 768px) {
     .footer-container {
       flex-direction: column;

@@ -9,7 +9,7 @@
     margin-left: 100px;
   }
   
-  /* Верхня частина */
+
   .nft-details-upper {
     display: flex;
     position: relative;
@@ -20,9 +20,9 @@
   
   .nft-image  {
     border-radius: 40px;
-    width: 400px; /* Фіксована ширина контейнера */
-    height: 400px; /* Фіксована висота контейнера */
-    margin-left: 170px; /* Позиціонування */
+    width: 400px; 
+    height: 400px; 
+    margin-left: 170px; 
      object-fit: cover;
   }
     
@@ -32,7 +32,7 @@
     color: #fff;
   }
   
-  /* Колекція */
+
   .collection-name {
     font-family: 'Arvo', serif;
     font-weight: 700;
@@ -40,7 +40,7 @@
     color: #fff;
   }
   
-  /* Назва NFT */
+
   .nft-title {
     font-family: 'Arvo', serif;
     font-weight: 700;
@@ -48,7 +48,7 @@
     color: #fff;
   }
   
-  /* Метадані */
+
   .meta-info {
     display: flex;
     gap: 80px;
@@ -57,12 +57,12 @@
   
   .creator,
   .owner {
-    display: block;           /* Переконайтеся, що це звичайний блок */
+    display: block;          
     white-space: nowrap;      
     overflow: hidden;         
     text-overflow: ellipsis;  
-    width: 200px;             /* Чітко задайте ширину */
-    max-width: 100%;          /* Або адаптивну ширину */
+    width: 200px;             
+    max-width: 100%;        
     text-align: left;
   }
   
@@ -81,7 +81,7 @@
     color: #fff;
   }
   
-  /* Ціна */
+
   .price-section-b {
     margin-top: 28px;
   }
@@ -100,7 +100,7 @@
     color: #eae5e5;
   }
   
-  /* Розділювач */
+
   .separator {
     border: 1px solid #c9c0c0;
     width: 440px;
@@ -122,7 +122,7 @@
     border-color: #df2626;
   }
   
-  /* Нижня лінія */
+
   .bottom-separator {
     border: 1px solid #c9c0c0;
     width: 1115px;
@@ -131,7 +131,7 @@
     margin-left: 500px;
   }
   
-  /* Опис */
+
   .description-section {
     text-align: center;
     margin-top: 60px;
@@ -154,23 +154,23 @@
   }
 
   
-  /* Контейнер для кнопки з градієнтною обводкою */
+
 .button-container-b {
     position: relative;
     display: inline-block;
-    padding: 2px; /* Ширина градієнта */
+    padding: 2px; 
     background: linear-gradient(
       to bottom right,
       rgba(97, 12, 135, 1) 0%, 
       rgba(183, 4, 184, 1) 30%, 
       rgba(213, 47, 203, 1) 60%, 
       rgba(165, 156, 219, 1) 100%
-    ); /* Фіолетовий градієнт */
+    ); 
     border-radius: 12px;
-    margin-top: 3px; /* Відступ від інших елементів */
+    margin-top: 3px; 
   }
   
-  /* Стиль кнопки */
+
   .buy-now-button {
     font-family: 'Arvo', serif;
     font-weight: 700;
@@ -187,10 +187,10 @@
     justify-content: center;
     padding: 12px 18px;
     box-sizing: border-box;
-    position: relative; /* Абсолютне позиціонування кнопки */
+    position: relative; 
   }
   
-  /* Псевдоелемент для градієнтної обводки */
+
   .buy-now-button::after {
     content: '';
     position: absolute;
@@ -205,10 +205,10 @@
       rgba(213, 47, 203, 1) 60%, 
       rgba(165, 156, 219, 1) 100%
     );
-    z-index: -1; /* Псевдоелемент позаду кнопки */
+    z-index: -1; 
   }
   
-  /* Стиль кнопки при наведенні */
+
   .buy-now-button:hover {
     z-index: 0;
     box-shadow: 20px 0 200px #ff00aa, -20px 0 200px #a83dff;

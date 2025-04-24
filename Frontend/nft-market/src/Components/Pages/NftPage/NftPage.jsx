@@ -6,37 +6,35 @@ import NFTSlider from "./Components/NFTSlider/NFTSlider";
 import Header from "../../Header/Header";
 
 const NFTPage = () => {
-  const { id } = useParams(); // Отримуємо ID з URL
-  const [nft, setNft] = useState(null); // Стейт для NFT-даних
-  const [collectionNFTs, setCollectionNFTs] = useState([]); // Стейт для NFT у колекції
-  const [loading, setLoading] = useState(true); // Стейт для завантаження
-  const [error, setError] = useState(null); // Стейт для помилок
+  const { id } = useParams(); 
+  const [nft, setNft] = useState(null);
+  const [collectionNFTs, setCollectionNFTs] = useState([]);
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const fetchNftAndCollection = async () => {
       try {
-        const nftResponse = await axios.get(`http://localhost:3500/nft/${id}`); // Запит на NFT
-        console.log("NFT Response:", nftResponse.data); // Перевіряємо, що приходить
+        const nftResponse = await axios.get(`http://localhost:3500/nft/${id}`); 
+        console.log("NFT Response:", nftResponse.data); 
         if (nftResponse.data.success) {
           const nftData = nftResponse.data.data;
-          setNft(nftData); // Зберігаємо дані NFT у стейт
+          setNft(nftData);
 
-          // Завантажуємо NFT з колекції
           const collectionResponse = await axios.get(
             `http://localhost:3500/collections/${nftData.collectionId}`
           );
-          console.log("Collection Response:", collectionResponse.data); // Перевіряємо колекцію
+          console.log("Collection Response:", collectionResponse.data); 
           if (collectionResponse.data) {
             setCollectionNFTs(collectionResponse.data.nfts);
           }
         } else {
           setError("NFT not found");
         }
-      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         setError("An error occurred while fetching data.");
       } finally {
-        setLoading(false); // Завантаження завершено
+        setLoading(false); 
       }
     };
 
@@ -77,7 +75,7 @@ const NFTPage = () => {
 
       <NFTSlider
         collectionNFTs={collectionNFTs}
-        currentCollectionId={nft.collectionId} // Передаємо ID колекції
+        currentCollectionId={nft.collectionId}
       />
     </div>
   );

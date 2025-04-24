@@ -1,4 +1,3 @@
-// data.js
 export const collectionData = [
     { id: 1, title: 'Collection 1' },
     { id: 2, title: 'Collection 2' },

@@ -28,10 +28,12 @@ const InputBlock = ({ userAddress }) => {
 
         const result = await response.json();
         if (response.ok) {
-          setCollections(result.map(item => ({
-            ...item,
-            name: item.collection?.name || "Unnamed Collection",
-          })));
+          setCollections(
+            result.map((item) => ({
+              ...item,
+              name: item.collection?.name || "Unnamed Collection",
+            }))
+          );
         } else {
           console.error("Failed to fetch collections:", result.message);
         }
@@ -58,58 +60,60 @@ const InputBlock = ({ userAddress }) => {
   };
 
   const handleCollectionSelect = (collection) => {
-    console.log("Selected collection:", collection); // Виводимо колекцію для перевірки
+    console.log("Selected collection:", collection);
     setSelectedCollection(collection);
-  
-    // Перевіряємо, чи є в колекції поле collectionId
-    if (collection && collection.collection && collection.collection.collectionId) {
-      console.log("Selected collection ID:", collection.collection.collectionId); // Виводимо collectionId
+
+    if (
+      collection &&
+      collection.collection &&
+      collection.collection.collectionId
+    ) {
+      console.log(
+        "Selected collection ID:",
+        collection.collection.collectionId
+      );
     }
-  
+
     if (collection === null) {
       setNewCollectionName("");
       setNewCollectionSymbol("");
     }
   };
-  
-  
-  
-  
+
   const handleCreate = async () => {
     const nftData = {
       title: nftTitle,
       description: nftDescription,
       imageUrl,
       blockchainAddress,
-      NftStatus: "created", // Встановлюємо статус "created" за замовчуванням
+      NftStatus: "created",
     };
-  
+
     console.log("NFT Data being sent:", nftData);
-  
-    // Перевірка, чи вибрана колекція або введена нова
+
     if (!selectedCollection && !newCollectionName) {
       alert("Please select or create a collection.");
       return;
     }
-  
-    // Якщо вибрана колекція, додаємо її collectionId
+
     if (selectedCollection && selectedCollection.collection) {
       if (selectedCollection.collection.collectionId) {
-        nftData.collectionId = selectedCollection.collection.collectionId; // Передаємо collectionId існуючої колекції
-        console.log("Selected Collection ID:", selectedCollection.collection.collectionId);
+        nftData.collectionId = selectedCollection.collection.collectionId;
+        console.log(
+          "Selected Collection ID:",
+          selectedCollection.collection.collectionId
+        );
       } else {
         alert("Selected collection does not have a valid collectionId.");
         return;
       }
     } else {
-      // Якщо створюється нова колекція, передаємо її назву та символ
       if (newCollectionName) {
-        nftData.collectionName = newCollectionName; // Передаємо назву нової колекції
-        nftData.collectionSymbol = newCollectionSymbol; // Передаємо символ нової колекції
+        nftData.collectionName = newCollectionName;
+        nftData.collectionSymbol = newCollectionSymbol;
       }
     }
-  
-    // Статус NFT в залежності від того, чи на ринку чи на аукціоні
+
     if (!isOnMarketplace) {
       nftData.NftStatus = "created";
     } else if (isAuction) {
@@ -122,7 +126,7 @@ const InputBlock = ({ userAddress }) => {
       nftData.isAuctioned = false;
       nftData.price = parseFloat(price);
     }
-  
+
     try {
       const token = localStorage.getItem("jwt");
       const response = await fetch("http://localhost:3500/create", {
@@ -133,7 +137,7 @@ const InputBlock = ({ userAddress }) => {
         },
         body: JSON.stringify(nftData),
       });
-  
+
       const result = await response.json();
       if (response.ok) {
         console.log("NFT created successfully:", result);
@@ -147,9 +151,6 @@ const InputBlock = ({ userAddress }) => {
       alert("An error occurred while creating the NFT.");
     }
   };
-  
-  
-  
 
   return (
     <div className="page-content">
@@ -261,68 +262,67 @@ const InputBlock = ({ userAddress }) => {
           </>
         )}
 
-<div className="collection-block">
-  <div className="title-text">Choose collection</div>
-  <div className="collection-container">
-    {selectedCollection ? (
-      <div className="selected-collection">
-        <div className="collection-name">{selectedCollection.name}</div>
-        <button
-          className="change-collection-btn"
-          onClick={() => setSelectedCollection(null)} // Дозволяє змінити вибір
-        >
-          Change
-        </button>
-      </div>
-    ) : (
-      <>
-        <div
-          className="collection-box add-collection"
-          onClick={() => handleCollectionSelect(null)} // Для створення нової колекції
-        >
-          <div className="plus-sign">+</div>
-          <div>Create</div>
-        </div>
+        <div className="collection-block">
+          <div className="title-text">Choose collection</div>
+          <div className="collection-container">
+            {selectedCollection ? (
+              <div className="selected-collection">
+                <div className="collection-name">{selectedCollection.name}</div>
+                <button
+                  className="change-collection-btn"
+                  onClick={() => setSelectedCollection(null)}
+                >
+                  Change
+                </button>
+              </div>
+            ) : (
+              <>
+                <div
+                  className="collection-box add-collection"
+                  onClick={() => handleCollectionSelect(null)}
+                >
+                  <div className="plus-sign">+</div>
+                  <div>Create</div>
+                </div>
 
-        {collections.map((collection) => (
-          <div
-            key={collection._id} // Важливо, щоб це був унікальний ідентифікатор колекції
-            className="collection-box"
-            onClick={() => handleCollectionSelect(collection)} // Вибір існуючої колекції
-          >
-            <div className="collection-name">{collection.name}</div>
+                {collections.map((collection) => (
+                  <div
+                    key={collection._id}
+                    className="collection-box"
+                    onClick={() => handleCollectionSelect(collection)}
+                  >
+                    <div className="collection-name">{collection.name}</div>
+                  </div>
+                ))}
+              </>
+            )}
+
+            {selectedCollection === null && (
+              <div className="new-collection-name">
+                <div className="input-border">
+                  <input
+                    className="nft-title-input"
+                    type="text"
+                    value={newCollectionName}
+                    onChange={(e) => setNewCollectionName(e.target.value)}
+                    placeholder="Enter Collection title"
+                  />
+                </div>
+                <div className="symbol_imput">
+                  <div className="input-border">
+                    <input
+                      className="nft-title-input"
+                      type="text"
+                      value={newCollectionSymbol}
+                      onChange={(e) => setNewCollectionSymbol(e.target.value)}
+                      placeholder="Enter Collection symbol"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        ))}
-      </>
-    )}
-
-    {selectedCollection === null && (
-      <div className="new-collection-name">
-        <div className="input-border">
-          <input
-            className="nft-title-input"
-            type="text"
-            value={newCollectionName}
-            onChange={(e) => setNewCollectionName(e.target.value)}
-            placeholder="Enter Collection title"
-          />
         </div>
-        <div className="symbol_imput">
-          <div className="input-border">
-            <input
-              className="nft-title-input"
-              type="text"
-              value={newCollectionSymbol}
-              onChange={(e) => setNewCollectionSymbol(e.target.value)}
-              placeholder="Enter Collection symbol"
-            />
-          </div>
-        </div>
-      </div>
-    )}
-  </div>
-</div>
-
 
         <button className="create-btn" onClick={handleCreate}>
           Create

@@ -4,12 +4,12 @@ import './ProfileStats.css';
 
 const ProfileStats = ({ userAddress }) => {
   const [userProfile, setUserProfile] = useState(null);
-  const [avatar, setAvatar] = useState("https://www.webiconio.com/_upload/255/image_255.svg"); // дефолтне зображення
+  const [avatar, setAvatar] = useState("https://www.webiconio.com/_upload/255/image_255.svg");
 
   useEffect(() => {
     if (!userAddress) return;
 
-    // Запит на отримання профілю користувача за його адресою
+ю
     fetch(`http://localhost:3500/user/info`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
@@ -21,7 +21,7 @@ const ProfileStats = ({ userAddress }) => {
         setUserProfile({
           name: data.data.username,
           address: data.data.userAddress,
-          balance: data.data.totalBalance, // Тут потрібно буде коректно обробити баланс, якщо потрібно
+          balance: data.data.totalBalance, 
           purchases: data.data.purchases,
           sales: data.data.sales,
           totalNFTs: data.data.totalNFTs,

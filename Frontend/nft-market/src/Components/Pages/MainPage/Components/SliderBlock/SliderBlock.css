@@ -1,12 +1,9 @@
 
-
-
-
 .slider-block {
     text-align: center;
-    margin: 0 auto; /* Центрування блоку */
-    width: 100wv; /* Обмеження ширини */
-    box-sizing: border-box; /* Врахування відступів у розрахунку ширини */
+    margin: 0 auto;
+    width: 100wv; 
+    box-sizing: border-box;
     max-width: 100vw;
     padding-bottom: 100px;
     
@@ -23,54 +20,54 @@
 }
 
 .slider-container {
-    width: 100%; /* Робимо блок адаптивним */
-    max-width: 800px; /* Обмежуємо максимальну ширину слайдера */
-    margin: 0 auto; /* Центрування слайдера */
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto; 
     position: relative;
-    border-radius: 40px; /* Закруглення контейнера */
+    border-radius: 40px; 
     background: linear-gradient(138deg, rgba(36, 36, 36, 0.507) 0%, rgba(138, 138, 138, 0) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонка прозора біла рамка */
+    border: 1px solid rgba(255, 255, 255, 0.3); 
     padding: 20px;
-    box-sizing: border-box; /* Уникаємо виходу за межі */
+    box-sizing: border-box; 
     z-index: 1;
-    width: 700px; /* Фіксована ширина */
-    height: 480px; /* Фіксована висота */
+    width: 700px;
+    height: 480px;
     display: flex;
-    justify-content: center; /* Центрування слайдера по горизонталі */
-    align-items: center; /* Центрування слайдера по вертикалі */
+    justify-content: center; 
+    align-items: center; 
 }
 
 .mySwiper {
-    width: 100%; /* Автоматичне розтягування всередині контейнера */
-    height: 100%; /* Висота на весь контейнер */
+    width: 100%; 
+    height: 100%;
 }
 
 .swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none; /* Прибираємо фон */
-    height: 100%; /* Слайд займає всю висоту контейнера */
+    background: none; 
+    height: 100%; 
 }
 
 .slider-image {
-    width: 402px; /* Фіксована ширина картинки */
-    height: 402px; /* Фіксована висота картинки */
-    object-fit: cover; /* Зберігає пропорції та обрізає */
-    border-radius: 30px; /* Закруглення зображень */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Легка тінь */
+    width: 402px;
+    height: 402px;
+    object-fit: cover; 
+    border-radius: 30px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
 }
 
 .swiper-pagination {
-    color: #fff; /* Колір пагінації */
+    color: #fff; 
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-    color: #fff; /* Кнопки навігації */
+    color: #fff; 
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    color: #951fb3; /* Фіолетовий при наведенні */
+    color: #951fb3;
 }

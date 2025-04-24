@@ -8,16 +8,14 @@ const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Отримуємо JWT токен з localStorage
     const token = localStorage.getItem('jwt');
     
     if (!token) {
-      // Якщо токен не знайдений, перенаправити користувача на сторінку логіну
+  
       window.location.href = '/marketplace';
       return;
     }
 
-    // Отправляємо запит на бекенд для отримання профілю користувача
     fetch('http://localhost:3500/user/info', {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -28,11 +26,10 @@ const ProfilePage = () => {
       if (data.success) {
         setUserAddress(data.data.userAddress);
       } else {
-        // Обробка помилки, якщо не вдалося отримати дані
         console.error('Error fetching user data:', data.message);
       }
     })
-    .finally(() => setLoading(false)); // Завершити завантаження
+    .finally(() => setLoading(false)); 
   }, []);
 
   if (loading) {
